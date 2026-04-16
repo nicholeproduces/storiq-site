@@ -121,3 +121,11 @@ li {
 .border-bottom {
   border-color: var(--siq-border) !important;
 }
+
+.investor-eyebrow {
+  letter-spacing: 0.12em;
+}
+
+.investor-market-label {
+  letter-spacing: 0.06em;
+}

@@ -8,6 +8,7 @@ storiq is an inventory and task handoff app for people managing physical items a
 
 - Website: https://getstoriq.com
 - Repository: https://github.com/nicholeproduces/storiq-site
+- Privacy policy (for app / store listings): https://getstoriq.com/privacy (use your live site URL until DNS points here)
 
 ## What it does
 
@@ -18,4 +19,4 @@ storiq is an inventory and task handoff app for people managing physical items a
 
 ## Contact
 
-- hello@getstoriq.com
+- savagepropsll@gmail.com

@@ -9,6 +9,10 @@
     {
       "source": "/investor",
       "destination": "/investor.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
     }
   ]
 }
