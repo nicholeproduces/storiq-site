@@ -1,0 +1,123 @@
+:root {
+  --siq-bg: #f8fafc;
+  --siq-surface: #ffffff;
+  --siq-text: #0f172a;
+  --siq-muted: #475569;
+  --siq-border: #e2e8f0;
+  --siq-primary: #2563eb;
+  --siq-primary-hover: #1d4ed8;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--siq-text);
+  background-color: var(--siq-bg);
+  line-height: 1.55;
+}
+
+.site-header,
+.site-footer {
+  background-color: var(--siq-surface);
+}
+
+.brand {
+  color: var(--siq-text);
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: 0.01em;
+}
+
+.brand:hover {
+  color: var(--siq-text);
+}
+
+.hero {
+  background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%);
+}
+
+.hero-subtitle {
+  color: var(--siq-muted);
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.problem-framing {
+  background-color: var(--siq-surface);
+}
+
+.problem-question {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 650;
+  color: var(--siq-text);
+}
+
+.problem-support {
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--siq-muted);
+  max-width: 40rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--siq-text);
+}
+
+p,
+li {
+  color: var(--siq-muted);
+}
+
+.btn-primary {
+  background-color: var(--siq-primary);
+  border-color: var(--siq-primary);
+  border-radius: 0.65rem;
+  font-weight: 600;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--siq-primary-hover);
+  border-color: var(--siq-primary-hover);
+}
+
+.feature-card,
+.step-box {
+  border: 1px solid var(--siq-border);
+  background-color: var(--siq-surface);
+  border-radius: 1rem;
+}
+
+.feature-card .card-body,
+.step-box {
+  padding: 1.5rem;
+}
+
+.step-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--siq-primary);
+}
+
+.audience-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.text-secondary {
+  color: var(--siq-muted) !important;
+}
+
+.border-top,
+.border-bottom {
+  border-color: var(--siq-border) !important;
+}
