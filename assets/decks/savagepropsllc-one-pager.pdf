@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ48CR9DB0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WQ48CR9DB0');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<base href="/" />
+<title>Patchwork Living</title>
+
+<style>
+  /* Google Fonts: lighter, cleaner (no 800) */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+  :root{
+    /* Housing / trust / operations: soft off-white + muted yellow accents */
+    --color-1:#FDFBF6; --color-2:#FAF6E8; --color-3:#F5EEC8; --color-4:#F0E6B8; --color-5:#E8D98A;
+    --color-6:#D4C26A; --color-7:#B7950B; --color-8:#9A7D0A; --color-9:#7D6608; --color-10:#5C4D06;
+    --brand:var(--color-6); --brand-ink:#1a1a1a; --ink:#1c1c1c; --muted:#FAF6E8; --card:#fffef9; --line:#e6e2d8;
+    --ok:#1f8f62; --warn:#845a00; --danger:#ad2131; --radius:20px; --maxw:1200px;
+    --shadow-sm:0 2px 8px rgba(0,0,0,.04);
+    --shadow-md:0 4px 16px rgba(0,0,0,.08);
+    --shadow-lg:0 12px 40px rgba(0,0,0,.12);
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{
+    margin:0; padding:0;
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color:var(--ink); background:#f7f5f0; line-height:1.6;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container{ max-width:var(--maxw); margin:0 auto; padding:0 24px 48px; }
+  .stack{ display:flex; flex-direction:column; gap:20px }
+  .row{ display:flex; gap:16px; align-items:center; flex-wrap:wrap }
+  .grid{ display:grid; gap:20px }
+  .grid.cards{ grid-template-columns:repeat(auto-fill,minmax(300px,1fr)) }
+
+  .muted{ color:#666 }
+  .small{ font-size:14px; line-height:1.55 }
+
+  .eyebrow{
+    letter-spacing:.08em; text-transform:uppercase; font-weight:700; font-size:11px;
+    color:var(--color-8); margin-bottom:8px;
+  }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line);
+    border-radius:999px; padding:8px 14px; background:#fff; font-size:13px; font-weight:600;
+  }
+
+  .btn{
+    appearance:none; border:0; border-radius:14px; background:#1a1a1a; color:#fff;
+    padding:12px 20px; font-weight:700; font-size:15px; cursor:pointer;
+    box-shadow:var(--shadow-md); transition:all .2s ease; text-decoration:none;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap;
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+  .btn:active{ transform:translateY(0); }
+  .btn.secondary{ background:#fff; border:1.5px solid var(--line); color:#111; box-shadow:var(--shadow-sm); }
+  .btn.brand{ background:var(--brand); color:var(--brand-ink); border:1px solid var(--brand); }
+  .btn.brand:hover{ filter: brightness(0.95); }
+  .btn.big{ padding:14px 24px; font-size:16px; }
+
+  .input,select,textarea{
+    width:100%; padding:14px 16px; border-radius:12px; border:1.5px solid var(--line); background:#fff;
+    font-size:15px; font-family:inherit; transition:border-color .2s;
+  }
+  .input:focus,select:focus,textarea:focus{ outline:none; border-color:var(--brand); }
+  label{ font-size:13px; color:#555; font-weight:600; margin-bottom:6px; display:block; }
+  .field{ display:flex; flex-direction:column; gap:6px }
+
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow-sm); overflow:hidden; display:flex; flex-direction:column; position:relative;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); }
+  .card .media-wrap{ position:relative; overflow:hidden }
+  .card > .media, .media-wrap > .media{ width:100%; aspect-ratio:16/10; background:#f0f0f0; display:block; object-fit:cover; }
+  .media.project-media{ aspect-ratio:16/8.5; }
+  .card .media.photo-contain{ object-fit:contain; }
+  .card .content{ padding:22px }
+
+  .chip{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; background:#2a2825; color:#fff; padding:8px 12px; font-size:13px; font-weight:700; }
+  .chip.brand{ background:var(--brand); color:var(--brand-ink); }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,254,249,.96); backdrop-filter:saturate(1.8) blur(20px);
+    border-bottom:1px solid var(--line); box-shadow:var(--shadow-sm);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 20px; max-width:var(--maxw); margin:0 auto; }
+  .logo{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:17px; letter-spacing:-.01em; color:#111; }
+  .logo .logo-img{ height:auto; width:auto; min-height:48px; max-height:56px; max-width:min(280px,52vw); object-fit:contain; display:block; border-radius:8px; }
+  .hero-logo-bar{ width:100%; text-align:center; padding:8px 0 4px; }
+  .hero-logo-bar .hero-logo{ width:auto; max-width:min(92vw, 480px); max-height:min(28vh, 200px); height:auto; object-fit:contain; display:inline-block; margin:0 auto; border-radius:14px; box-shadow:0 8px 28px rgba(0,0,0,.07); background:#fffef9; padding:14px 20px; }
+
+  nav{ display:flex; gap:4px; align-items:center; flex-wrap:wrap; }
+  nav a{ color:#444; text-decoration:none; padding:9px 12px; border-radius:10px; font-weight:600; font-size:14px; transition:all .2s; }
+  nav a.active,nav a:hover{ background:var(--muted); color:#111; }
+
+  .hero{ padding:56px 0 40px; background:linear-gradient(180deg,#fffef9 0%,#faf8f2 50%,var(--muted) 100%); }
+  .hero h1{ font-size:clamp(30px,4.4vw,48px); margin:0 0 12px; line-height:1.2; font-weight:700; letter-spacing:-.01em; }
+  .hero p{ font-size:clamp(16px,1.5vw,19px); color:#555; line-height:1.6; }
+
+  h2{ font-size:clamp(26px,3.2vw,38px); font-weight:700; letter-spacing:-.01em; margin:0 0 8px; line-height:1.2; }
+  h3{ font-size:clamp(20px,2.4vw,26px); font-weight:700; margin:0 0 8px; }
+  h4{ font-size:18px; font-weight:700; margin:0 0 8px; }
+
+  main{ min-height:60vh; padding-top:32px; }
+  section[hidden]{ display:none !important }
+  section{ margin-bottom:80px; }
+
+  footer{ border-top:1px solid var(--line); background:#fff; padding:40px 0; }
+
+  .modal{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.6); z-index:200; backdrop-filter:blur(4px); }
+  .modal.show{ display:flex }
+  .modal .dialog{ background:#fff; border-radius:24px; max-width:680px; width:92%; padding:32px; box-shadow:var(--shadow-lg); max-height:90vh; overflow-y:auto; }
+
+  .badge-verified{
+    position:absolute; top:12px; left:12px; display:inline-flex; align-items:center; gap:6px;
+    background:linear-gradient(135deg, #22c55e, #16a34a); color:#fff; font-weight:800; font-size:12px;
+    padding:8px 12px; border-radius:999px; box-shadow:0 4px 12px rgba(0,0,0,.2);
+  }
+  .badge-verified svg{ width:14px; height:14px; }
+
+  .scenarios-layout{
+    display:grid;
+    grid-template-columns:minmax(0, 1.15fr) minmax(280px, 420px);
+    gap:24px;
+    align-items:start;
+  }
+  .scenarios-video{
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    background:#111;
+    box-shadow:var(--shadow-sm);
+  }
+  .scenarios-video iframe{
+    width:100%;
+    aspect-ratio:9/16;
+    border:0;
+    display:block;
+  }
+  .scenarios-list{
+    margin:0;
+    padding-left:20px;
+    color:#4b4b4b;
+    line-height:1.55;
+  }
+  .scenarios-list li{ margin-bottom:8px; }
+  @media (max-width:900px){
+    .scenarios-layout{ grid-template-columns:1fr; }
+  }
+
+  ol, ul{ padding-left:20px; }
+  ol li, ul li{ margin-bottom:8px; line-height:1.6; }
+  strong{ font-weight:600; }
+
+  /* Mobile tweaks */
+  @media (max-width:768px){
+    .logo .logo-img{ min-height:44px; max-height:52px; max-width:min(260px,70vw); }
+    .hero-logo-bar .hero-logo{ max-height:min(22vh, 180px); padding:12px 16px; }
+    .container{ padding:0 16px 32px; }
+    .nav{ flex-direction:column; gap:10px; padding:10px 16px; }
+    nav{ width:100%; justify-content:center; }
+    nav a{ font-size:13px; padding:8px 10px; }
+    .hero{ padding:40px 0 32px; }
+    .btn.block-sm{ width:100%; }
+    .grid.cards{ grid-template-columns:1fr; }
+    .grid{ grid-template-columns:1fr !important; }
+    section{ margin-bottom:64px; }
+    .row{ gap:12px; }
+  }
+  @media (max-width:480px){
+    .hero h1{ font-size:28px; }
+    h2{ font-size:24px; }
+    .btn{ font-size:14px; padding:12px 18px; }
+    .card .content{ padding:16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="nav">
+    <a href="/" class="logo" data-route-link style="text-decoration:none;color:inherit" title="Patchwork Living home">
+      <img src="assets/patchwork_living_logo.png" alt="Patchwork Living" class="logo-img" width="280" height="56" decoding="async" />
+    </a>
+    <nav id="topnav" aria-label="Main">
+      <a href="/" data-route-link>Home</a>
+      <a href="/search-sitters" data-route-link>Gap Sitters</a>
+      <a href="/search-projects" data-route-link>Example scenarios</a>
+      <a href="/how" data-route-link>How It Works</a>
+      <a href="/pricing" data-route-link>Pricing</a>
+      <a href="/community" data-route-link>Market Signals</a>
+      <a href="/founder" data-route-link><!-- NEW -->Founder Services</a>
+      <a href="/join" data-route-link>Join Us</a>
+      <a href="/ai-future-vision" data-route-link>AI Vision</a>
+      <a href="https://www.instagram.com/patchworkwithus" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="hero" id="route-home" data-route="home">
+  <div class="container stack" style="gap:22px">
+    <div class="hero-logo-bar">
+      <img
+        src="assets/patchwork_living_logo.png"
+        alt="Patchwork Living"
+        class="hero-logo"
+        width="480"
+        height="160"
+        decoding="async"
+      />
+    </div>
+
+    <div class="stack" style="gap:14px">
+      <span class="eyebrow" style="margin-bottom:2px">Structured occupancy service</span>
+      <h1>Stitched by People, Powered by Purpose</h1>
+      <p style="font-size:clamp(17px,2vw,22px);font-weight:700;color:#333;margin:0;line-height:1.35;max-width:720px">
+        Structured occupancy for vacant and temporarily unattended properties
+      </p>
+      <p style="font-size:17px;color:#444;max-width:720px;margin:0;line-height:1.55">
+        <strong>Patchwork Living</strong> is a structured occupancy and asset protection network for properties that are vacant or temporarily unattended. It connects owners and institutions with trusted, vetted people who can provide stabilization, monitoring, light property tasks, and documentation-ready accountability.
+      </p>
+      <p style="font-size:16px;color:#555;max-width:720px;margin:0">
+        <strong>Who it serves:</strong> homeowners, landlords, and institutions managing vacancy, including municipalities, housing portfolios, and seasonal or turnover gaps.
+      </p>
+      <p style="font-size:15px;color:#666;max-width:720px;margin:0;font-style:italic;border-left:3px solid var(--color-5);padding-left:12px">
+        Most homeowners insurance does not cover a vacant house the same way it covers an occupied home. When no one is living there, coverage can change or be limited unless your insurer has been notified and your policy allows it.
+      </p>
+      <p style="font-size:14px;color:#666;max-width:720px;margin:0">
+        This is an active service and concept tested through local cases. Escrow and full legal rails are not live yet; delivery currently runs through direct scoped agreements and documented operations.
+      </p>
+
+      <div class="row" style="margin-top:10px;gap:10px">
+        <a href="https://vimeo.com/1134009534?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn big brand block-sm">Watch the walkthrough</a>
+      </div>
+
+      <!-- Risk punch -->
+      <div class="card" style="margin-top:18px">
+        <div class="content stack" style="gap:14px">
+          <h3 style="margin:0;font-size:clamp(20px,2.4vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.25">Vacancy can affect coverage</h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#333">
+            Most homeowners insurance policies assume someone is living in the property.
+          </p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#333">
+            When a home sits vacant for <strong>30 days or more</strong>, many policies restrict or deny coverage for damage, theft, or liability unless the insurer has been notified.
+          </p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#333">
+            Industry estimates suggest <strong>up to 70–80%</strong> of standard homeowners policies include vacancy exclusions.
+          </p>
+          <p style="margin:0 0 2px 0;font-size:15px;line-height:1.5;color:#333">This commonly happens during:</p>
+          <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;color:#333">
+            <li>Travel or extended absence</li>
+            <li>Renovations and pre-sale vacancy</li>
+            <li>Rental turnover gaps</li>
+            <li>Seasonal homes</li>
+            <li>Probate and estate transitions</li>
+            <li>Institutional or municipal holdings</li>
+          </ul>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#333;font-weight:600">
+            Even a "safe, empty home" can unintentionally put your asset at risk.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="route-home-services" data-route="home">
+  <div class="container stack">
+    <h2>What the service provides</h2>
+    <p class="muted" style="max-width:820px;margin:0 0 8px 0">Operational building blocks for <strong>structured occupancy</strong>, <strong>asset protection</strong>, and a <strong>trusted network</strong> of vetted members, designed for documentation and accountability, not lifestyle marketing.</p>
+    <div class="grid cards">
+      <div class="card">
+        <div class="content stack">
+          <h3>Occupancy &amp; compliance documentation</h3>
+          <p class="muted small">Digitally signed letters and records that confirm structured human presence where policies and programs require it: travel, renovation, estate, rental turnover, or institutional vacancy.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content stack">
+          <h3>Property stabilization &amp; inspection reports</h3>
+          <p class="muted small">Time-stamped, photo-backed checks of systems and security, scoped to the property such as seasonal vacancy, pre-sale, pre-inspection, or municipal stabilization needs.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content stack">
+          <h3>Utility &amp; systems coordination</h3>
+          <p class="muted small">With written authorization, network members coordinate hookups, metering, and technician access so the property stays functional and observable, reducing unmanaged vacancy risk.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content stack">
+          <h3>Single accountable contact</h3>
+          <p class="muted small">A verified, background-checked point of contact with clear communication, defined tasks, and incident-ready coordination. This is not ad-hoc gig work.</p>
+        </div>
+      </div>
+      <div class="card" style="background:linear-gradient(180deg,#faf8f2,#fffef9)">
+        <div class="content stack">
+          <h3>Reporting for owners &amp; institutions</h3>
+          <p class="muted small">Structured updates and exportable documentation for insurers, asset managers, and program leads, built for operational review, not consumer “reviews.”</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET CONTEXT / CREDIBILITY (home) -->
+<section id="route-home-market" data-route="home">
+  <div class="container stack">
+    <h2>Market context</h2>
+    <p class="muted" style="max-width:820px;font-size:16px;margin:0 0 4px 0">
+      Property, work, and care already operate at huge scale. These are <strong>adjacent</strong> signals, not Patchwork’s market size. Patchwork is a live structured occupancy service building a trusted network.
+    </p>
+    <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="card"><div class="content stack"><h4>Vacancy, U.S.</h4><p class="muted small">Roughly <strong>15.1 million</strong> vacant homes in <strong>2024</strong>, about <strong>10%</strong> of housing inventory. Census data and related FRED series also track homes <strong>held off market</strong>, including occasional use, temporary absence, and other non-sale or non-rent reasons.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Peak 65 and aging</h4><p class="muted small">The U.S. is in a <strong>Peak 65</strong> wave. About <strong>4.1 million</strong> Americans per year are expected to turn <strong>65</strong> through <strong>2027</strong>, around <strong>11,000 per day</strong>. More households need flexible, trusted help at home and away.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Gig and flexible work</h4><p class="muted small">Broad estimates such as Gig Economy Data put <strong>at least ~42 million</strong> Americans in some form of gig work, with definitions varying. The Federal Reserve’s <strong>2024</strong> household well-being data shows participation varies by age, including <strong>about 12%</strong> of adults <strong>60+</strong>.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Care and caregiving</h4><p class="muted small"><strong>AARP</strong> and the <strong>National Alliance for Caregiving</strong> reported on the order of <strong>63 million</strong> Americans as caregivers in <strong>2025</strong>. That scale shows how many adults already do trust-heavy, care-adjacent work.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Vetted in-home marketplaces</h4><p class="muted small">Platforms like <strong>Care.com</strong> operate at national scale for background-checked, in-home services. Different use case from structured occupancy, same idea: <strong>vetted people</strong> for sensitive roles.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Creative real estate, Meta</h4><p class="muted small"><strong>Observed membership</strong> in large creative real estate communities on <strong>Meta / Facebook</strong> reaches the <strong>~179K</strong> range for a single visible group count, including one private group around <strong>~178.6K</strong>. This indicates community size, not Patchwork adoption.</p></div></div>
+      <div class="card"><div class="content stack"><h4>House-sitting communities</h4><p class="muted small"><strong>Observed membership</strong> in major house-sitting communities is often in the <strong>tens of thousands</strong>, including visible counts around <strong>33K+</strong>. This indicates adjacent interest in property stays, not Patchwork users.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Medical search example</h4><p class="muted small"><strong>Doctoralia Mexico</strong> reported <strong>11M+</strong> visits/month and <strong>1.9M+</strong> appointments booked/month in <strong>2024</strong>. This illustrates trust-based booking behavior in another vertical.</p></div></div>
+    </div>
+    <p class="small muted" style="margin:0;max-width:820px">These figures describe <strong>national or platform context</strong> and <strong>adjacent communities</strong>, not Patchwork’s current user base.</p>
+  </div>
+</section>
+
+<!-- MARKET SIGNALS / DEMAND (was Voice of the Community) -->
+<section id="route-community" data-route="community" hidden>
+  <div class="container stack">
+    <span class="eyebrow">Strategic context</span>
+    <h2>Market signals &amp; why this network matters</h2>
+    <p class="muted" style="max-width:880px;font-size:16px">
+      Demand is fragmented: owners need <strong>trusted presence</strong> and <strong>documented accountability</strong> during vacancy; experienced people seek <strong>intermittent, well-scoped roles</strong> tied to property stabilization, not a lifestyle travel product. Patchwork Living operates a structured occupancy network aligned with asset protection needs.
+    </p>
+
+    <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <div class="card">
+        <div class="content stack">
+          <h3>Market signals</h3>
+          <ul class="small muted">
+            <li>Insurance and lender rules often treat extended vacancy differently from occupied use, so owners need clarity and proof, not anecdotes.</li>
+            <li>Public and institutional portfolios accumulate vacant units that need stabilization, monitoring, and compliant documentation, not ad-hoc arrangements.</li>
+            <li>Flexible and remote work has expanded who can take on defined, local accountability windows when the model is explicit and vetted.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="content stack">
+          <h3>Existing demand</h3>
+          <ul class="small muted">
+            <li>Owners and asset managers ask for repeatability: known standards, not a new unknown contact for every gap.</li>
+            <li>Portfolio and municipal holders need <strong>property stabilization</strong> language and audit trails, aligned with program requirements where applicable.</li>
+            <li>People with relevant skills want fair scope, safety, and transparent liability, consistent with a <strong>trusted network</strong>, not gig churn.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="content stack">
+          <h3>Why this network</h3>
+          <ul class="small muted">
+            <li><strong>Structured roles</strong> for vetted occupants and members, scoped tasks, monitoring, emergency response pathways, and documentation by default.</li>
+            <li><strong>Verification &amp; education</strong> oriented toward property and compliance outcomes, not consumer “reviews.”</li>
+            <li><strong>Asset protection first:</strong> occupancy letters, inspections, and records suitable for insurers and institutional review.</li>
+            <li><strong>Partner programs:</strong> we run with aligned properties and partners and are not operating a broad public marketplace at scale today.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter / email capture -->
+    <div class="card">
+      <div class="content grid" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px">
+        <div class="stack">
+          <h3>Service updates</h3>
+          <p class="small muted">
+            We are actively growing property and institutional partnerships and welcome interest from owners, institutions, and qualified Gap Sitters. Occasional updates, no spam, no data resale.
+          </p>
+        </div>
+        <form class="stack small" action="mailto:help@patchworkwithus.com" method="post" enctype="text/plain">
+          <div class="field">
+            <label for="community-email">Email</label>
+            <input id="community-email" name="email" type="email" class="input" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="community-role">I am a...</label>
+            <select id="community-role" name="role" class="input">
+              <option value="member">Gap Sitter / vetted occupant (interest)</option>
+              <option value="owner">Homeowner / landlord / asset manager</option>
+              <option value="institution">Institution or municipality</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button class="btn brand" type="submit">Request service information</button>
+          <p class="small muted" style="margin:0">
+            Opens your email app to <strong>help@patchworkwithus.com</strong>, you control the send.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY (kept; you can decide later if you want it as a separate page) -->
+<section id="route-why" data-route="why" hidden>
+  <div class="container stack">
+    <h2>Why Patchwork, why now?</h2>
+    <div class="grid cards">
+      <div class="card"><div class="content stack"><h4>Millions of homes sit empty</h4><p class="muted small">The U.S. had on the order of <strong>15.1 million</strong> vacant homes in <strong>2024</strong> (about <strong>10%</strong> of inventory). Matching responsible people to idle homes is common sense.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Peak 65</h4><p class="muted small">About <strong>4.1 million</strong> Americans per year are expected to turn <strong>65</strong> through <strong>2027</strong> (roughly <strong>11,000 per day</strong>). More need-at-home and more mobility to plan around.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Gig and flexible work</h4><p class="muted small">Tens of millions participate in gig or flexible work; the Federal Reserve’s <strong>2024</strong> survey includes <strong>about 12%</strong> of adults <strong>60+</strong> reporting gig work. A wide pool for well-scoped, verified roles.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Care economy</h4><p class="muted small">On the order of <strong>63 million</strong> Americans were caregivers in recent estimates (<strong>AARP</strong> / <strong>NAC</strong>). Trust-based work at scale.</p></div></div>
+    </div>
+    <p class="small muted">Figures reflect published national statistics and surveys such as Census, Federal Reserve, and industry estimates.</p>
+  </div>
+</section>
+
+<!-- SEARCH: gap sitters -->
+<section id="route-search-sitters" data-route="search-sitters" hidden>
+  <div class="container stack">
+    <h2>Gap Sitters</h2>
+    <p class="muted" style="max-width:880px;margin:0 0 12px 0">
+      The cards below are <strong>example profiles</strong> for service and partner conversations, not a live public directory. We run a <strong>trusted network</strong> of vetted occupants and property-capable members; availability and onboarding follow active case demand.
+    </p>
+    <div class="row" style="gap:10px;flex-wrap:wrap">
+      <a href="https://vimeo.com/1118183573?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn brand">See Gap Sitter in Action</a>
+    </div>
+    <div style="position:relative;width:100%;height:0;padding-top:56.25%;box-shadow:0 2px 8px 0 rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:0.9em;overflow:hidden;border-radius:8px">
+      <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none" src="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?embed" allowfullscreen></iframe>
+    </div>
+    <a href="https://www.canva.com/design/DAGzxdvYjw4/k_cBGpOTlm3V92Gw9dT43g/view?utm_content=DAGzxdvYjw4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" style="color:#111;font-weight:600;text-decoration:underline">Overview deck (network concept)</a>
+
+    <div class="grid" style="grid-template-columns:320px 1fr;gap:24px">
+      <div class="card" style="padding:24px;height:fit-content">
+        <div class="stack">
+          <div class="field"><label for="sit-q">Keyword</label><input id="sit-q" class="input" placeholder="skills, language, property tasks…"></div>
+          <div class="field"><label for="sit-loc">Location</label><input id="sit-loc" class="input" placeholder="city or region"></div>
+          <div class="field"><label for="sit-date">Earliest start</label><input id="sit-date" type="date" class="input"></div>
+          <div class="field"><label for="sit-skills">Skill</label>
+            <select id="sit-skills">
+              <option value="">Any</option>
+              <option>Gapsitting</option>
+              <option>Property Check-ins</option>
+              <option>Security</option>
+              <option>Remote Surveillance Setup</option>
+              <option>Emergency Response</option>
+              <option>Cleaning</option>
+              <option>Handyman</option>
+              <option>Lock Installation</option>
+              <option>Supervising Repairs</option>
+              <option>Vendor Coordination</option>
+              <option>Senior Services</option>
+              <option>Home Modifications</option>
+              <option>Medical Equipment Setup</option>
+              <option>Mobility Support</option>
+              <option>Fall Prevention</option>
+              <option>Cooking Classes</option>
+              <option>Event Hosting</option>
+              <option>Translation Services</option>
+              <option>Education</option>
+            </select>
+          </div>
+          <button class="btn brand" id="sit-filter">Search</button>
+        </div>
+      </div>
+      <div class="grid cards" id="sit-results"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH: example scenarios -->
+<section id="route-search-projects" data-route="search-projects" hidden>
+  <div class="container stack">
+    <h2>Example property scenarios</h2>
+    <div class="scenarios-layout">
+      <div class="stack" style="gap:10px">
+        <p class="muted" style="max-width:720px;margin:0">
+          These example listings show how structured occupancy and stipends can be scoped into practice.
+        </p>
+        <ul class="scenarios-list">
+          <li>Vacant home during renovation with contractor oversight and daily check-ins.</li>
+          <li>Seasonal absence coverage with documented property checks and utility monitoring.</li>
+          <li>Turnover gap support for rentals needing presence, access coordination, and reporting.</li>
+          <li>Post-incident stabilization where owners need immediate trusted on-site support.</li>
+        </ul>
+      </div>
+      <div class="stack" style="gap:10px">
+        <h3 style="margin:0">Watch a real-life squatter aftermath, Gap Sitter in action</h3>
+        <div class="scenarios-video">
+          <iframe src="https://player.vimeo.com/video/1118183573?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Gap Sitter in action walkthrough"></iframe>
+        </div>
+        <a href="https://vimeo.com/1118183573?share=copy&amp;fl=sv&amp;fe=ci" target="_blank" rel="noopener" class="btn brand">Watch a Gap Sitter in Action</a>
+      </div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:320px 1fr;gap:24px">
+      <div class="card" style="padding:24px;height:fit-content">
+        <div class="stack">
+          <div class="field"><label for="proj-q">Keyword</label><input id="proj-q" class="input" placeholder="install locks, full-time presence…"></div>
+          <div class="field"><label for="proj-loc">Location</label><input id="proj-loc" class="input" placeholder="city or region"></div>
+          <div class="row">
+            <div class="field" style="flex:1"><label for="proj-from">From</label><input id="proj-from" type="date" class="input"></div>
+            <div class="field" style="flex:1"><label for="proj-to">To</label><input id="proj-to" type="date" class="input"></div>
+          </div>
+          <button class="btn brand" id="proj-filter">Search</button>
+        </div>
+      </div>
+      <div class="grid cards" id="proj-results"></div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="bid-modal" role="dialog" aria-modal="true" aria-label="Submit bid">
+    <div class="dialog stack">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <h3 style="margin:0">Demo: expression of interest</h3>
+        <button class="btn secondary" onclick="closeBidModal()">Close</button>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:24px">
+        <div class="stack">
+          <div class="field"><label>Your name</label><input id="bid-name" class="input" placeholder="Name"></div>
+          <div class="field"><label>Monthly stipend</label><input id="bid-price" class="input" type="number" min="0" step="25" placeholder="e.g., 600"></div>
+          <div class="field"><label>Message</label><textarea id="bid-msg" class="input" rows="4" placeholder="Short pitch: availability, skills, tools"></textarea></div>
+          <button class="btn brand" onclick="submitBid()">Send (demo only)</button>
+        </div>
+        <div class="card" style="padding:20px">
+          <div class="stack">
+            <strong>Tip</strong>
+            <p class="small muted">List exact tasks, timing, and comms. Example: "Install 2 locks (2 hrs), set up 3 cameras (1.5 hrs), daily check-in (10 min)."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (simplified, risk-first & verification-first) -->
+<section id="route-how" data-route="how" hidden>
+  <div class="container stack">
+    <h2>How it works</h2>
+    <div class="card">
+      <div class="content">
+        <ul class="muted" style="margin:0">
+          <li>Designed to be simple, verifiable, and documented.</li>
+          <li>Forward-authorized presentation for approved representation.</li>
+          <li>Structured human presence where required.</li>
+          <li>Audit-friendly trail from check-ins to exportable reports.</li>
+          <li>Steps vary by property, owner needs, and partner requirements.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid cards">
+      <div class="card"><div class="content stack"><h3>1) Authorize &amp; Scope</h3><p class="muted small">Short authorization naming Patchwork as your verified representative. Define periodic check-ins or structured occupancy; scope tasks such as utilities, cameras, inspections, and stabilization.</p></div></div>
+      <div class="card"><div class="content stack"><h3>2) Verify &amp; Activate</h3><p class="muted small">Your local, background-checked representative performs a first visit: Face-ID check-in, photo baseline, meter readings, lock/camera setups, and initial condition report.</p></div></div>
+      <div class="card"><div class="content stack"><h3>3) Document &amp; Deliver</h3><p class="muted small">Every visit is time-stamped with photos. Reports compile to PDF for your insurer or PM. Emergency-ready access allows supervised entry for law enforcement or technicians.</p></div></div>
+      <div class="card"><div class="content stack"><h3>4) Stay Covered</h3><p class="muted small">Insurer-friendly occupancy letters and ongoing proof of activity keep the property compliant. You see everything in your dashboard and by email.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="route-founder" data-route="founder" hidden>
+  <div class="container stack" style="gap:18px">
+    <h2>Founder Services</h2>
+
+    <p>
+      Hi, I’m Nichole Wleklinski, property owner, manager, and MBA candidate/remote student. 
+      I’ve been “gap-sitting” and helping people bridge the space between everyday life and the tools we all rely on now. 
+      I focus on teaching you how to plan efficiently and run simple, modern systems so you stay organized, connected, confident, and relevant.
+    </p>
+
+    <div class="row" style="gap:10px;flex-wrap:wrap">
+      <span class="pill">English (native)</span>
+      <span class="pill">Spanish (conversational)</span>
+      <a class="pill" href="https://www.imdb.com/name/nm1980251/?ref_=fn_t_1" target="_blank" rel="noopener">Veteran film industry professional, IMDb</a>
+    </div>
+
+    <h3>Services</h3>
+    <ul class="muted">
+      <li><strong style="font-weight:600;display:none"></strong>Travel planning and consultations, efficient itineraries, safety notes, hotel/Airbnb group coordination, transit options, “first-48 hours” setup checklist, local SIM and fintech tools. Done-with-you so you can do it yourself next time.</li>
+      <li>Relocation and expat support, rental basics in plain English, neighborhood and safety summaries, translation and paperwork help, connections to trusted local contacts (San Miguel de Allende, Pátzcuaro, Puerto Vallarta, Mexico City), realistic cost-of-living comparisons.</li>
+      <li>Digital paperwork and bureaucracy help, disability or retirement paperwork, insurance claims and government forms, basic tax research and property records or appeal prep, financial literacy and setup for Wise, Xoom, Revolut.</li>
+      <li>AI and digital coaching, one-on-one coaching (ChatGPT, Notion, prompt craft), AI-assisted resumes, presentations, research packets, and small-business/property-management workflows.</li>
+      <li>Device and account setup, iPhone/iPad basics, password managers, shared albums, FaceTime groups, secure cloud, camera and Wi-Fi installs.</li>
+      <li>Property admin support (remote-first), light PM tasks, remote tenant screening guidance, digital records, inspection templates, insurer-friendly documentation prep.</li>
+      <li>Subscription and payments tune-up, review and clean up subscriptions, set reminders, walk through payment apps, basic expense tracking habits that actually stick.</li>
+      <li>Voice-to-writing help, learn to dictate and upload voice notes to AI for clean emails, letters, posts, and documentation.</li>
+    </ul>
+
+    <h3>Rates</h3>
+    <p>Rates by project, up to negotiation.</p>
+
+    <h3>Payments accepted</h3>
+    <p class="muted">Wise • Revolut • PayPal • Cash • Bank transfer • Zelle • Cash App • Venmo • local payments • personal crowdfunding support</p>
+
+    <h3>Contact and profiles</h3>
+    <div class="row" style="gap:10px;flex-wrap:wrap">
+      <a class="btn brand" href="mailto:social@patchworkwithus.com?subject=Founder%20Services%20Inquiry&body=Name%3A%0ACity%2FTimezone%3A%0APreferred%20service%3A%0ARemote%20or%20in-person%3A%0ARate%20preference%3A%0A">Book a session (email)</a>
+      <a class="btn secondary" href="https://www.linkedin.com/in/nicholewleklinski" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn secondary" href="https://www.instagram.com/heroprops" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn secondary" href="https://nicholeproduces.substack.com/" target="_blank" rel="noopener">Substack</a>
+      <a class="btn secondary" href="https://t.me/patchworkliving" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn secondary" href="https://www.upwork.com/freelancers/~01be94424f2ba12eab" target="_blank" rel="noopener">Upwork</a>
+      <a class="btn secondary" href="https://www.freelancer.com/u/nicholew2" target="_blank" rel="noopener">Freelancer</a>
+    </div>
+    <p class="small muted">WhatsApp available by request after initial contact.</p>
+
+    <h3>Learn more about Patchwork Living</h3>
+    <p><a href="/" data-route-link>Go to Patchwork Living home</a></p>
+
+    <h3>Disclaimer</h3>
+    <p class="muted">I do not provide legal, immigration, or medical advice. I can connect you to trusted professionals, recommend verified resources, and help organize the logistics, paperwork, and communication you need to move forward.</p>
+  </div>
+</section>
+
+
+<!-- JOIN US -->
+<section id="route-join" data-route="join" hidden>
+  <div class="container stack">
+        <span class="eyebrow">Service-stage</span>
+    <h2>Partners, investors, and builders</h2>
+    <p class="muted" style="max-width:800px">
+      Patchwork Living is <strong>building the model</strong>. We are seeking <strong>early partners</strong> with properties, portfolios, or public programs, plus aligned capital and technical help. Focus areas: structured occupancy, asset protection, verification, and institutional-grade documentation, not a consumer growth sprint.
+    </p>
+
+    <div class="grid cards">
+      <div class="card"><div class="content stack"><span class="eyebrow">Capital &amp; strategic partners</span><h4>Investors aligned with service infrastructure</h4><p class="muted small">We are not optimizing for a consumer-app growth curve. We want partners who understand <strong>housing operations</strong>, <strong>verification</strong>, and <strong>institutional documentation</strong>: proptech, public-sector housing, insurance-adjacent workflows, payments and identity.</p><ul class="small muted"><li>Funds: verification stack, partner onboarding, service geographies, security review</li><li>Outcomes: structured occupancy programs, not generic marketplace GMV</li><li>Commercial model: participation and verification economics by partner scope</li></ul></div></div>
+      <div class="card"><div class="content stack"><span class="eyebrow">Advisors &amp; program design</span><h4>Housing, accessibility, and field expertise</h4><p class="muted small">We welcome advisors who know <strong>vacancy risk</strong>, <strong>seniors and aging in place</strong>, <strong>disability-inclusive environments</strong>, or <strong>municipal and portfolio programs</strong> to stress-test scopes, safeguards, and documentation before broader rollout.</p></div></div>
+      <div class="card"><div class="content stack"><span class="eyebrow">Trades &amp; stabilization</span><h4>Contractors and property-readiness</h4><p class="muted small">Licensed tradespeople who can support <strong>property stabilization</strong> including locks, basic repairs, accessibility prep, and coordination with structured occupancy plans, not ad-hoc side jobs outside a defined service scope.</p></div></div>
+      <div class="card"><div class="content stack"><span class="eyebrow">Engineering (contract)</span><h4>Platform roles for verification-first operations</h4><p class="muted small">Help us build <strong>admin and partner workflows</strong>: verified profiles, audit-friendly logs, notifications, and secure document handling. This is an <strong>operations stack</strong>, not a viral consumer marketplace launch.</p><ul class="small muted"><li>Stack: modern frontend + API + Postgres; strong auth and audit trails</li><li>Priorities: security review, role-based access, exportable records for partners</li><li>Integrations: email/SMS, object storage, identity vendors as programs require</li><li>Future: escrow or settlement tools only where partners and compliance allow</li></ul></div></div>
+      <div class="card"><div class="content stack"><span class="eyebrow">Philanthropic support</span><h4>Support service buildout</h4><p class="muted small">Donations help cover tooling and verification costs, with clear use toward <strong>infrastructure and partnerships</strong>, not paid user acquisition.</p><a class="btn brand big" href="https://www.crowdfunder.com/p/patchwork-living" target="_blank" rel="noopener noreferrer">Donate via Crowdfunder</a><p class="muted small" style="margin-top:8px">Proceeds support service development, verification partners, and program design for Patchwork Living.</p><a class="btn brand big" href="https://giveth.io/project/patchwork-living" target="_blank" rel="noopener noreferrer">Donate via Giveth</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI + FUTURE VISION roadmap -->
+<section id="route-ai-future-vision" data-route="ai-future-vision" hidden>
+  <div class="container stack" style="gap:32px">
+    <div class="stack" style="max-width:900px;margin:auto">
+      <span class="eyebrow">Roadmap · exploratory</span>
+      <h2>Technology, trust, and operations</h2>
+      <p class="muted">Patchwork Living’s core is a <strong>trusted network</strong> and <strong>structured occupancy</strong> model. The directions below are <strong>design hypotheses</strong> for future phases, evaluated with partners for fit, compliance, and proportionality. None imply a shipped product or live marketplace today.</p>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:20px;margin-top:12px">
+        <div class="card"><div class="content stack"><h4>Decision support (AI-assisted)</h4><p class="muted small">Where appropriate, assist partners in matching <strong>scoped roles</strong> to verified members using skills, availability, and program rules, always with human oversight and auditability.</p></div></div>
+        <div class="card"><div class="content stack"><h4>Documentation &amp; imagery</h4><p class="muted small">Structured photo and check-in flows to support <strong>condition reporting</strong> and insurer- or program-facing records, not “auto-verification” claims without partner sign-off.</p></div></div>
+        <div class="card"><div class="content stack"><h4>Payments &amp; settlement (future)</h4><p class="muted small">Escrow or milestone release may be considered <strong>only with qualified partners</strong> and compliant rails, traditional settlement is the default until requirements are clear.</p></div></div>
+        <div class="card"><div class="content stack"><h4>Resilience &amp; escalation paths</h4><p class="muted small">Define how the network supports <strong>emergency coordination</strong> and escalation with property owners and institutions, within agreed scopes, not ad-hoc dispatch.</p></div></div>
+        <div class="card" style="grid-column:1 / -1"><div class="content stack"><h4>Secure records</h4><p class="muted small">Centralized, access-controlled storage for logs, photos, and communications appropriate to <strong>operational review</strong> and partner obligations, privacy and retention policies set per program.</p></div></div>
+      </div>
+
+      <div class="row" style="margin-top:20px;gap:12px;flex-wrap:wrap;justify-content:flex-start">
+        <a class="btn brand" href="https://patchwork-living-demo.my.canva.site/patchwork-living-pitch-deck-pptx" target="_blank" rel="noopener">Innovation deck</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING (kept) -->
+<section id="route-pricing" data-route="pricing" hidden>
+  <div class="container stack">
+    <h2>Revenue &amp; pricing concepts</h2>
+    <p class="muted" style="max-width:800px">Structures for stakeholder conversations. Final terms are set by scope, service level, and partner requirements.</p>
+    <div class="grid cards">
+      <div class="card"><div class="content stack"><h4>Stipend for structured occupancy</h4><p class="muted small">Monthly or weekly stipend for defined presence + scoped property tasks. Clear scope, documented.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Check-in &amp; stabilization bundles</h4><p class="muted small">Priced visits or bundles (locks, cameras, condition reports) for seasonal vacancy, turnover, or institutional holds.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Hybrid programs</h4><p class="muted small">Recurring services tailored to portfolio or municipal program needs, subject to program agreement.</p></div></div>
+      <div class="card"><div class="content stack"><h4>Participation &amp; verification fees</h4><p class="muted small">Network participation and verification costs as alternatives to opaque per-transaction cuts. Final details are scoped per partner.</p></div></div>
+    </div>
+    <p class="small muted">Figures on the site elsewhere are examples for demos only.</p>
+  </div>
+</section>
+
+<!-- PRIVACY (site-wide placeholder) -->
+<section id="route-privacy" data-route="privacy" hidden>
+  <div class="container stack" style="gap:14px;max-width:720px">
+    <h2 style="margin:0">Privacy</h2>
+    <p class="muted" style="margin:0">A full Patchwork Living privacy policy for this marketing site is coming soon.</p>
+    <p style="margin:0"><a href="/" class="btn secondary" data-route-link>Back to home</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container row" style="justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <p class="small muted" style="margin:0">© <span id="year"></span> Patchwork Living · Structured occupancy &amp; asset protection network</p>
+    <nav class="row" style="gap:10px">
+      <a href="/privacy" data-route-link>Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  /* ===== App state ===== */
+  const state = { bids:{} };
+
+  /* ===== Gapsitters (real team), photos in images/projects/ ===== */
+  const sampleSitters = [
+    {id:'elizabeth', name:'Elizabeth', location:'Atlanta', tagline:'Union member • Homeowner • Pet owner 15+ years', skills:['Security','CPR Certified','Carpentry','Drywall','Trust Certified','Pet care','Handyman','Property Check-ins','Cleaning'], start:'2025-09-01', verified:true, photo:'images/projects/elizabeth.jpg', photoFallbackText:'Elizabeth', bio:'Professional weapons safety training, security training, hazardous materials training. Drywall. Tree removal. Security camera replacement certified. Professional cleaner. OSHA trained.'},
+    {id:'danielle', name:'Danielle', location:'Albuquerque', tagline:'Registered dietitian • Homeowner • Government employee', skills:['CPR Certified','Pet care','Property Check-ins','Gapsitting'], start:'2025-09-01', verified:true, photo:'images/projects/danielle.jpg', photoFallbackText:'Danielle', bio:'Certified in CPR, climbing and survival skills. Pet owner 15+ years.'},
+    {id:'violet', name:'Violet', location:'Your City (mobile)', tagline:'Professional mold remediation • Trust certified • Homeowner • Union member', skills:['Mold Remediation','Trust Certified','Pet care','Property Check-ins','Gapsitting'], start:'2025-09-01', verified:true, photo:'images/projects/violet.jpg', photoFallbackText:'Violet', bio:'Large database and wireless networks. Trust certified. Pet owner 15+ years.'},
+    {id:'nichole', name:'Nichole Wleklinski', location:'Mexico City (mobile)', tagline:'Master in Management (UIUC) • Landlord • Homeowner • Food safety certified • Trust certified', skills:['Spanish','Trust Certified','Food Safety','Pet care','Security','Handyman','Property Check-ins'], start:'2025-09-25', verified:true, photo:'images/projects/nichole.jpg', photoFallbackText:'Nichole', bio:'Professional weapons safety training. Union member. OSHA trained. Pet owner 15+ years. Security camera replacement certified. Film industry, actors and producers.', linkedin:'https://www.linkedin.com/in/nicholewleklinski', video:'https://vimeo.com/1120936886?share=copy'},
+    {id:'anna', name:'Anna', location:'Atlanta (mobile)', tagline:'Digital nomad • Organization • Professional buyer • Vintage professional • Spanish • Union member', skills:['Spanish','Education','Property Check-ins','Gapsitting','Pet care'], start:'2025-09-01', verified:true, photo:'images/projects/anna.jpg', photoFallbackText:'Anna', photoContain:true, bio:'Organization. Professional buyer. Vintage professional. Digital creator. Pet owner 15+ years.'},
+  ];
+
+  /* ===== Demo data (PROJECTS), images in images/projects/ ===== */
+  const sampleProjects = [
+    {id:'johnhouse', title:"Secure house, oversee construction, maintain contractor hours", city:'Your City', from:'2025-08-13', to:'2025-09-30', needs:['Secure house','Oversee construction','Maintain contractor hours','Full-time presence'], pay:[400,800], bidsLeft:4, img:'images/projects/johnhouse.jpeg', imgFallbackText:'House', description:'Property owner needs a responsible presence during construction. Oversee contractor hours, keep the house secure, and provide brief photo reports. Ideal for someone who can be on-site during work windows.'},
+    {id:'dorothyhouse', title:"Property watch, secure house, contractor oversight", city:'Your City', from:'2025-09-01', to:'2025-10-15', needs:['Secure house','Oversee construction','Maintain contractor hours','Photo reports'], pay:[350,700], bidsLeft:5, img:'images/projects/dorothyhouse.jpg', imgFallbackText:'House', description:'Ongoing property watch with contractor oversight. Maintain security, coordinate with trades as needed, and send regular photo updates. Stipend negotiable based on scope.'},
+    {id:'stairsfixed', title:"Project complete: Stairs repair", city:'Your City', from:'2025-08-01', to:'2025-08-20', needs:['Stairs repair','Project complete','Showcase'], pay:[0,0], bidsLeft:0, img:'images/projects/stairsfixed.JPG', imgFallbackText:'Stairs', showcase:true, completedBy:'Nichole123', possibleEarnings:[400,600], description:'This listing is closed. Stairs repair was completed successfully. Shown here as an example of a finished project and possible earnings for similar work.'},
+    {id:'downed-tree-dogs', title:"Large tree in backyard, away for summer, dog-friendly home", city:'Your City', from:'2025-06-01', to:'2025-08-31', needs:['Dog friendly','Tree removal','Oversee removal','Hauling','Trusted presence','Photo reports'], pay:[250,500], bidsLeft:5, img:'images/projects/dogswelcomedownedtree.jpg', imgFallbackText:'Backyard', description:"There is a very large tree in the backyard. I will be away for the summer and it just fell. It's a dog-friendly home. I need someone to help oversee the tree removal, and if they can do extra work hauling it would save me some money, but a trusted presence is what I really need during this time."},
+  ];
+
+  /* ===== Placeholder SVG generator ===== */
+  function ph(text){
+    const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23f7f7f7'/><stop offset='1' stop-color='%23eaeaea'/></linearGradient></defs><rect width='800' height='500' fill='url(%23g)'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='32' fill='%23999' font-family='Arial,Helvetica'>${text}</text></svg>`);
+    return `data:image/svg+xml;utf8,${svg}`;
+  }
+
+  /* ===== Render sitters ===== */
+  function renderSitters(){
+    const q = (document.getElementById('sit-q')?.value||'').trim().toLowerCase();
+    const loc = (document.getElementById('sit-loc')?.value||'').trim().toLowerCase();
+    const date = (document.getElementById('sit-date')?.value||'');
+    const skill = (document.getElementById('sit-skills')?.value||'');
+    const list = sampleSitters.filter(s=>{
+      const searchText = [s.name, s.tagline, (s.bio||''), s.skills.join(' ')].join(' ').toLowerCase();
+      const okQ = !q || searchText.includes(q);
+      const okLoc = !loc || s.location.toLowerCase().includes(loc);
+      const okDate = !date || s.start >= date;
+      const okSkill = !skill || s.skills.includes(skill);
+      return okQ && okLoc && okDate && okSkill;
+    });
+    const wrap = document.getElementById('sit-results'); if(!wrap) return;
+    wrap.innerHTML = '';
+    list.forEach(s=>{
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.innerHTML = `
+        <div class="media-wrap">
+          <img class="media ${s.photoContain ? 'photo-contain' : ''}" alt="${s.name}" src="${s.photo}" data-fallback="${ph(s.photoFallbackText || s.name)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.onerror=null}">
+          ${s.verified ? badgeHTML() : ''}
+        </div>
+        <div class="content stack">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>${s.name}</strong>
+            <span class="pill">Start: ${fmtDate(s.start)}</span>
+          </div>
+          <div class="small muted">${s.location}</div>
+          <div class="row" style="flex-wrap:wrap;gap:8px">${s.skills.map(x=>`<span class='pill'>${x}</span>`).join('')}</div>
+          <p class="muted small">${s.tagline}</p>
+          ${s.bio ? `<p class="muted small" style="margin:0">${s.bio}</p>` : ''}
+          <div class="row" style="flex-wrap:wrap; gap:10px">
+            <a class="btn" href="mailto:help@patchworkwithus.com?subject=Intro Request: ${encodeURIComponent(s.name)}">Request intro</a>
+            ${s.linkedin ? `<a class="btn secondary" href="${s.linkedin}" target="_blank" rel="noopener">🔗 LinkedIn</a>`:''}
+            ${s.video ? `<a class="btn brand" href="${s.video}" target="_blank" rel="noopener">🛠️ Handywoman video</a>`:''}
+          </div>
+        </div>`;
+      wrap.appendChild(el);
+    });
+  }
+
+  function badgeHTML(){
+    return `
+      <span class="badge-verified" title="Verified network member">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        Verified
+      </span>`;
+  }
+
+  document.getElementById('sit-filter')?.addEventListener('click', renderSitters);
+
+  /* ===== Render projects ===== */
+  function renderProjects(){
+    const q = (document.getElementById('proj-q')?.value||'').trim().toLowerCase();
+    const loc = (document.getElementById('proj-loc')?.value||'').trim().toLowerCase();
+    const from = (document.getElementById('proj-from')?.value||'');
+    const to = (document.getElementById('proj-to')?.value||'');
+    const list = sampleProjects.filter(p=>{
+      const okQ = !q || p.title.toLowerCase().includes(q) || p.needs.join(' ').toLowerCase().includes(q);
+      const okLoc = !loc || p.city.toLowerCase().includes(loc);
+      const okFrom = !from || p.from >= from;
+      const okTo = !to || p.to <= to;
+      return okQ && okLoc && okFrom && okTo;
+    });
+    const wrap = document.getElementById('proj-results'); if(!wrap) return;
+    wrap.innerHTML = '';
+    list.forEach(p=>{
+      const el = document.createElement('div');
+      el.className = 'card';
+      const bidsLeft = state.bids[p.id] != null ? state.bids[p.id] : p.bidsLeft;
+      const img = p.img || ph(p.imgFallbackText || 'House');
+      const isShowcase = p.showcase === true;
+      const payChip = isShowcase ? 'Unavailable, completed' : `${p.pay[0]}–${p.pay[1]} / mo`;
+      const bidSection = isShowcase ? '' : `<button class="btn brand" ${bidsLeft<=0?'disabled':''} onclick="openBidModal('${p.id}')">Bid</button>`;
+      const bidsPill = isShowcase ? 'Showcase' : `Bids left: ${bidsLeft}`;
+      const completedLine = isShowcase && p.completedBy ? `Completed by ${p.completedBy}${p.possibleEarnings && p.possibleEarnings[0] != null ? ` · Possible earnings: $${p.possibleEarnings[0]}–$${p.possibleEarnings[1]}` : ''}` : '';
+      el.innerHTML = `
+          <img class="media project-media" alt="${p.title}" src="${img}" data-fallback="${ph(p.imgFallbackText || 'House')}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.onerror=null}">
+        <div class="content stack">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>${p.title}</strong>
+            <span class="pill">${bidsPill}</span>
+          </div>
+          <div class="small muted">${p.city} • ${fmtDate(p.from)} → ${fmtDate(p.to)}</div>
+          ${completedLine ? `<div class="small muted">${completedLine}</div>` : ''}
+          <div class="row" style="flex-wrap:wrap;gap:8px">${p.needs.map(x=>`<span class='pill'>${x}</span>`).join('')}</div>
+          <div class="row"><span class="chip brand">${payChip}</span>${bidSection}</div>
+        </div>`;
+      wrap.appendChild(el);
+    });
+  }
+  document.getElementById('proj-filter')?.addEventListener('click', renderProjects);
+
+  /* ===== Modal helpers ===== */
+  let activeBidProject = null;
+  function openBidModal(projectId){ activeBidProject = projectId; document.getElementById('bid-modal').classList.add('show'); }
+  function closeBidModal(){ activeBidProject = null; document.getElementById('bid-modal').classList.remove('show'); }
+  function submitBid(){
+    const price = document.getElementById('bid-price').value.trim();
+    const msg = document.getElementById('bid-msg').value.trim();
+    if(!activeBidProject) return;
+    const curDefault = (sampleProjects.find(p=>p.id===activeBidProject)?.bidsLeft || 5);
+    const cur = state.bids[activeBidProject] != null ? state.bids[activeBidProject] : curDefault;
+    if(cur<=0){ alert('This listing is no longer accepting bids.'); closeBidModal(); return; }
+    state.bids[activeBidProject] = cur-1;
+    alert(`Bid submitted! (Demo)\n\nProject: ${activeBidProject}\nStipend: ${price || ', '} / mo\nMessage: ${msg || ', '}\nBids left: ${state.bids[activeBidProject]}`);
+    closeBidModal();
+    renderProjects();
+  }
+
+  /* ===== Helpers ===== */
+  function fmtDate(d){ try{ return new Date(d+'T00:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric'});}catch{return d} }
+
+  /* ===== History API router (/ = home, /pricing, …) ===== */
+  const AppRouter = {
+    routes: new Set([
+      'home','community','why','search-sitters','search-projects','how','pricing',
+      'founder','join','ai-future-vision','privacy',
+    ]),
+    normalizePath(pathname){
+      let p = String(pathname).split('?')[0].split('#')[0];
+      if (p.endsWith('/index.html')) p = p.slice(0, -'/index.html'.length) || '/';
+      p = p.replace(/\/+$/, '') || '/';
+      return p;
+    },
+    pathToRoute(pathname){
+      const p = this.normalizePath(pathname);
+      const seg = p === '/' ? 'home' : p.slice(1);
+      if (this.routes.has(seg)) return seg;
+      return 'home';
+    },
+    routeToPath(route){
+      if (route === 'home') return '/';
+      return '/' + route;
+    },
+    getRoute(){ return this.pathToRoute(location.pathname); },
+    navigate(route, opts){
+      const replace = opts && opts.replace;
+      const path = this.routeToPath(route);
+      if (replace) history.replaceState(null, '', path);
+      else history.pushState(null, '', path);
+      applyRoute(route);
+    },
+  };
+
+  function applyRoute(route){
+    document.querySelectorAll('section[data-route]').forEach(sec => {
+      sec.hidden = sec.getAttribute('data-route') !== route;
+    });
+    document.querySelectorAll('a[data-route-link]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('mailto:')){ a.classList.remove('active'); return; }
+      try{
+        const u = new URL(href, location.href);
+        if (u.origin !== location.origin){ a.classList.remove('active'); return; }
+        const r = AppRouter.pathToRoute(u.pathname);
+        if (r === route) a.classList.add('active');
+        else a.classList.remove('active');
+      }catch(_){ a.classList.remove('active'); }
+    });
+    if (route === 'search-sitters') renderSitters();
+    if (route === 'search-projects') renderProjects();
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+    window.scrollTo(0, 0);
+  }
+
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[data-route-link]');
+    if (!a || e.defaultPrevented) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (e.button !== 0) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('mailto:')) return;
+    if (/^https?:\/\//i.test(href)){
+      try{
+        if (new URL(href).origin !== location.origin) return;
+      }catch(_){ return; }
+    }
+    let path;
+    try{ path = new URL(href, location.href).pathname; }
+    catch(_){ return; }
+    e.preventDefault();
+    AppRouter.navigate(AppRouter.pathToRoute(path));
+  });
+
+  window.addEventListener('popstate', () => { applyRoute(AppRouter.getRoute()); });
+
+  (function initHistoryRouter(){
+    const route = AppRouter.pathToRoute(location.pathname);
+    const expected = AppRouter.routeToPath(route);
+    if (AppRouter.normalizePath(location.pathname) !== AppRouter.normalizePath(expected)){
+      history.replaceState(null, '', expected);
+    }
+    applyRoute(route);
+  })();
+</script>
+</body>
+</html>
