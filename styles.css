@@ -784,7 +784,11 @@ li {
   }
 }
 
-/* “Visual context” column — welcome portrait in slot */
+/* “Visual context” column — welcome portrait in slot (scaled down on desktop, no crop) */
+.sortiq-context-visual-slot .sortiq-context-visual-frame.sortiq-slot-frame-tall {
+  min-height: 200px;
+}
+
 .sortiq-context-visual-frame {
   display: flex;
   align-items: center;
@@ -794,16 +798,28 @@ li {
 
 .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
   width: auto;
-  max-width: min(100%, 17rem);
+  max-width: min(100%, 13rem);
   height: auto;
-  max-height: min(62vh, 540px);
+  max-height: min(46vh, 380px);
   object-fit: contain;
   display: block;
 }
 
 @media (min-width: 992px) {
+  .sortiq-context-visual-slot .sortiq-context-visual-frame.sortiq-slot-frame-tall {
+    min-height: 240px;
+  }
+
   .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
-    max-width: min(100%, 19rem);
+    max-width: min(100%, 11.25rem);
+    max-height: 320px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
+    max-width: min(100%, 12rem);
+    max-height: 340px;
   }
 }
 
