@@ -18,6 +18,7 @@
   --siq-screen-chrome: 0.45rem;
   --siq-font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
   --siq-font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --siq-font-bubble: "Nunito", "Inter", system-ui, sans-serif;
 }
 
 body {
@@ -927,15 +928,31 @@ li {
   max-width: 46rem;
 }
 
-/* Industry word cloud under “From photo to usable inventory” — staggered land-in */
-#how-it-works .sortiq-how-word-cloud {
-  margin-top: 0.25rem;
+/* Industry word cloud — under How it works intro copy; borderless; Nunito “bubble” type */
+#how-it-works .sortiq-how-intro-text .sortiq-word-cloud-wrap--how {
+  margin-top: clamp(1rem, 3vw, 1.65rem);
+  padding-inline: 0;
+  padding-bottom: 0;
 }
 
-.sortiq-word-cloud-wrap--how {
-  margin-top: clamp(0.35rem, 1.5vw, 0.85rem);
-  padding-inline: 0;
-  padding-bottom: clamp(0.15rem, 1vw, 0.35rem);
+#how-it-works .sortiq-how-intro-text .sortiq-word-cloud--inline {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  min-height: clamp(200px, 48vw, 260px);
+  height: clamp(200px, 48vw, 260px);
+  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#how-it-works .sortiq-how-intro-text .sortiq-cloud-word {
+  max-width: min(100%, 11.5rem);
+}
+
+#how-it-works .sortiq-how-intro-text .sortiq-cloud-word--long {
+  max-width: min(100%, 15rem);
 }
 
 .sortiq-word-cloud-wrap {
@@ -954,9 +971,9 @@ li {
   height: clamp(260px, 38vw, 340px);
   margin-inline: auto;
   overflow: hidden;
-  border-radius: var(--siq-radius-lg);
-  background: radial-gradient(120% 80% at 50% 40%, rgba(255, 255, 255, 0.45) 0%, rgba(244, 242, 238, 0.25) 55%, transparent 100%);
-  box-shadow: inset 0 0 0 1px rgba(227, 228, 232, 0.5);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   pointer-events: none;
   user-select: none;
 }
@@ -977,11 +994,11 @@ li {
 .sortiq-cloud-word-core {
   display: inline-block;
   max-width: 100%;
-  font-family: var(--siq-font-body);
+  font-family: var(--siq-font-bubble);
   font-size: calc(var(--fz) * clamp(0.72rem, 2.1vw, 1.05rem));
   font-weight: var(--fw);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
   color: var(--siq-muted);
   white-space: nowrap;
   overflow: hidden;
@@ -990,14 +1007,23 @@ li {
   filter: blur(3px);
   transform: scale(0.55);
   transform-origin: center center;
-  animation: sortiq-cloud-core-land 0.62s cubic-bezier(0.22, 1, 0.34, 1) forwards;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 10px rgba(30, 58, 95, 0.07),
+    0 3px 18px rgba(30, 58, 95, 0.05);
+  animation: sortiq-cloud-core-land 0.72s cubic-bezier(0.28, 1.35, 0.42, 1) forwards;
   animation-delay: calc(var(--i) * 0.52s);
 }
 
 .sortiq-cloud-word--display .sortiq-cloud-word-core {
-  font-family: var(--siq-font-heading);
-  letter-spacing: -0.04em;
+  font-family: var(--siq-font-bubble);
+  font-weight: 800;
+  letter-spacing: 0.04em;
   color: var(--siq-text);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95),
+    0 2px 12px rgba(30, 58, 95, 0.09),
+    0 4px 22px rgba(37, 99, 235, 0.07);
 }
 
 .sortiq-cloud-word--long {
@@ -1008,7 +1034,12 @@ li {
   0% {
     opacity: 0;
     filter: blur(3px);
-    transform: scale(0.55);
+    transform: scale(0.5);
+  }
+  62% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1.06);
   }
   100% {
     opacity: 1;
