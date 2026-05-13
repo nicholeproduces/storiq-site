@@ -927,17 +927,15 @@ li {
   max-width: 46rem;
 }
 
-/* Footer word cloud: words land one-by-one (staggered), stay visible; no pill UI */
-.sortiq-section-word-cloud {
-  padding-block: clamp(2.25rem, 5vw, 3.5rem);
-  background: linear-gradient(180deg, #faf9f7 0%, #ebe8e3 100%);
-  border-top: 1px solid var(--siq-border);
+/* Industry word cloud under “From photo to usable inventory” — staggered land-in */
+#how-it-works .sortiq-how-word-cloud {
+  margin-top: 0.25rem;
 }
 
-.sortiq-section-word-cloud .sortiq-word-cloud-wrap {
-  margin-top: 0;
-  padding-bottom: 0;
+.sortiq-word-cloud-wrap--how {
+  margin-top: clamp(0.35rem, 1.5vw, 0.85rem);
   padding-inline: 0;
+  padding-bottom: clamp(0.15rem, 1vw, 0.35rem);
 }
 
 .sortiq-word-cloud-wrap {
@@ -993,7 +991,7 @@ li {
   transform: scale(0.55);
   transform-origin: center center;
   animation: sortiq-cloud-core-land 0.62s cubic-bezier(0.22, 1, 0.34, 1) forwards;
-  animation-delay: calc(var(--i) * 0.38s);
+  animation-delay: calc(var(--i) * 0.52s);
 }
 
 .sortiq-cloud-word--display .sortiq-cloud-word-core {
