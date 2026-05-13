@@ -512,7 +512,44 @@ li {
   }
 }
 
-/* Bottom layered stack — welcome screen foremost (same feel as old hero, minus onboarding) */
+/* How it works: headline + welcome in two columns on desktop */
+.sortiq-welcomeback-showcase--inline {
+  max-width: 22rem;
+}
+
+@media (min-width: 992px) {
+  .sortiq-how-intro-row .sortiq-welcomeback-showcase--inline {
+    max-width: min(100%, 20rem);
+  }
+
+  .sortiq-how-intro-row .sortiq-welcomeback-showcase-img {
+    max-width: 100%;
+  }
+}
+
+/* “Questions” section — portrait spaces list */
+.sortiq-questions-spaceslist-frame {
+  background: #eceae6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.sortiq-questions-spaceslist-photo {
+  width: 100%;
+  max-width: min(100%, 280px);
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 992px) {
+  .sortiq-questions-spaceslist-photo {
+    max-width: 300px;
+  }
+}
 .sortiq-bottom-stack-section {
   background: linear-gradient(180deg, #f4f2ee 0%, #eef2f8 55%, #fbfaf8 100%);
   border-top: 1px solid var(--siq-border);
