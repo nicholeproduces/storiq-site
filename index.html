@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mybox Ai | AI-Powered Inventory and Task Handoff</title>
+  <title>SortIQ | Photo-first visual inventory for physical teams</title>
   <meta
     name="description"
-    content="Mybox Ai turns your inventory into something you can use — capture with AI, find items fast, and hand off tasks clearly."
+    content="SortIQ is photo-first, AI-assisted visual inventory for teams managing physical items across spaces, jobs, rentals, and handoffs. Request early access."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
   />
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -16,203 +22,488 @@
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="site-header border-bottom">
-    <div class="container py-3 d-flex align-items-center justify-content-between">
-      <a class="brand text-decoration-none" href="/">stor.iq</a>
-      <a class="small text-secondary text-decoration-none" href="/investor">Investor Info</a>
-    </div>
+<body class="sortiq-page">
+  <a class="visually-hidden-focusable sortiq-skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="sortiq-header border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light sortiq-nav" data-bs-theme="light" aria-label="Primary">
+      <div class="container sortiq-container py-2 py-lg-0">
+        <a class="navbar-brand sortiq-brand text-decoration-none d-flex flex-column align-items-start" href="/">
+          <span class="sortiq-wordmark">SortIQ</span>
+          <span class="sortiq-tagline">Visual Inventory</span>
+        </a>
+        <button
+          class="navbar-toggler sortiq-nav-toggle"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#sortiqNav"
+          aria-controls="sortiqNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="sortiqNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 sortiq-nav-links">
+            <li class="nav-item">
+              <a class="nav-link sortiq-nav-link" href="#use-cases">Use Cases</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link sortiq-nav-link" href="#how-it-works">How It Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link sortiq-nav-link" href="/investor">Investor Info</a>
+            </li>
+            <li class="nav-item ps-lg-2">
+              <a class="btn sortiq-btn-primary sortiq-btn-nav" href="#request-access">Request Early Access</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <section class="hero py-5">
-      <div class="container py-5">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-9">
-            <h1 class="display-4 fw-bold mb-3">Mybox Ai</h1>
-            <p class="lead hero-subtitle mb-4">
-              Turn your inventory into something you can actually use.
+  <main id="main-content">
+    <section class="sortiq-hero" aria-labelledby="hero-heading">
+      <div class="sortiq-hero-gradient" aria-hidden="true"></div>
+      <div class="container sortiq-container position-relative">
+        <div class="row align-items-center g-4 g-xl-5 py-5 sortiq-hero-row">
+          <div class="col-lg-6">
+            <p class="sortiq-eyebrow mb-3">Visual inventory for physical operations</p>
+            <h1 id="hero-heading" class="sortiq-hero-title">
+              Inventory that starts with a photo.
+            </h1>
+            <p class="sortiq-hero-lead mt-3 mb-4">
+              Turn spaces, bins, kits, props, tools, rentals, catering gear, and rotating stock into searchable visual
+              inventory without hours of manual data entry. Capture now, identify now or later, and use the record to
+              search, plan, track, and hand off physical work.
             </p>
-            <a href="#request-access" class="btn btn-primary btn-lg px-4">Request Early Access</a>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a class="btn sortiq-btn-primary btn-lg px-4" href="#request-access">Request Early Access</a>
+              <a class="btn sortiq-btn-secondary btn-lg px-4" href="#how-it-works">See How It Works</a>
+            </div>
+            <ul class="sortiq-pill-row list-unstyled d-flex flex-wrap gap-2 mb-0" aria-label="Product highlights">
+              <li><span class="sortiq-pill">Photo-first inventory</span></li>
+              <li><span class="sortiq-pill">AI-assisted identification</span></li>
+              <li><span class="sortiq-pill">Built for fast-moving physical workflows</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <!-- Image slots: .sortiq-hero-secondary-screenshot (assets/spaceslist.PNG), .sortiq-hero-main-screenshot (assets/welcomeback.PNG), .sortiq-hero-onboarding-triple (assets/onboarding.jpeg) -->
+            <div class="sortiq-hero-visual">
+              <div class="sortiq-hero-visual-stack">
+                <img
+                  class="sortiq-shot sortiq-hero-secondary-screenshot"
+                  src="assets/spaceslist.PNG"
+                  width="900"
+                  height="1950"
+                  alt="Spaces list in the SortIQ app"
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  class="sortiq-shot sortiq-hero-main-screenshot"
+                  src="assets/welcomeback.PNG"
+                  width="900"
+                  height="1950"
+                  alt="Welcome screen in the SortIQ app"
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  class="sortiq-shot sortiq-hero-onboarding-triple"
+                  src="assets/onboarding.jpeg"
+                  width="1200"
+                  height="900"
+                  alt="Onboarding flow showing three app screens side by side"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="problem-framing py-5 border-top">
-      <div class="container py-4">
-        <div class="row justify-content-center align-items-center g-4 g-lg-5">
-          <div class="col-12 col-lg-6 col-xl-5">
-            <div class="problem-framing-questions">
-              <p class="problem-question">Where <strong>is</strong> it?</p>
-              <p class="problem-question">Who <strong>has</strong> it?</p>
-              <p class="problem-question">How many do <strong>we</strong> have?</p>
-            </div>
-            <p class="problem-support mb-0">
-              Mybox Ai answers these questions instantly — with visual, searchable inventory across your bins, spaces, and teams.
+    <section class="sortiq-section" aria-labelledby="section-scratch-heading">
+      <div class="container sortiq-container">
+        <div class="row justify-content-center mb-4 mb-lg-5">
+          <div class="col-xl-9 text-center">
+            <h2 id="section-scratch-heading" class="sortiq-section-title">Stop building inventory from scratch every time.</h2>
+            <p class="sortiq-section-lead mx-auto mb-0">
+              Most inventory systems depend on perfect data entry. We start with what teams already do naturally: taking
+              photos. Snap a shelf, bin, truck, room, kit, rental pull, catering setup, or prop return. AI-assisted tools
+              help identify and organize what is visible, so the record becomes useful without someone typing every item
+              one by one.
             </p>
           </div>
-          <div class="col-12 col-lg-5 col-xl-5 text-center text-lg-start problem-framing-visual-col">
-            <figure class="problem-framing-shot mb-0">
-              <img
-                class="img-fluid rounded-4 shadow-sm"
-                src="assets/sort-iq-identified-screen.png"
-                width="296"
-                height="640"
-                alt="Mybox Ai identifying labeled items from a shelf photo"
-                loading="lazy"
-                decoding="async"
-              />
+        </div>
+        <div class="row g-4 sortiq-tri-card-row">
+          <div class="col-md-4">
+            <figure class="sortiq-media-card h-100 mb-0">
+              <div class="sortiq-media-frame">
+                <img
+                  src="assets/capture.PNG"
+                  width="800"
+                  height="600"
+                  alt="Capture a shelf or bin in the app"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="sortiq-media-caption">Capture what’s visible</figcaption>
+            </figure>
+          </div>
+          <div class="col-md-4">
+            <figure class="sortiq-media-card h-100 mb-0">
+              <div class="sortiq-media-frame">
+                <img
+                  src="assets/spaceorbin.PNG"
+                  width="800"
+                  height="600"
+                  alt="Assign items to a space or bin"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="sortiq-media-caption">Identify and assign to Space or Bin</figcaption>
+            </figure>
+          </div>
+          <div class="col-md-4">
+            <figure class="sortiq-media-card h-100 mb-0">
+              <div class="sortiq-media-frame">
+                <img
+                  src="assets/binimage.PNG"
+                  width="800"
+                  height="600"
+                  alt="Bins and items organized for later use"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="sortiq-media-caption">Use it later</figcaption>
             </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-5 border-top">
-      <div class="container">
-        <div class="section-heading mb-4">
-          <h2 class="h3 mb-2">What Mybox Ai does</h2>
-        </div>
-        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-xl-4">
-          <div class="col">
-            <article class="card h-100 feature-card">
-              <div class="card-body">
-                <h3 class="h5">Capture and organize</h3>
-                <p class="mb-0 text-secondary">
-                  Snap a photo. AI labels your items instantly. Track items visually across bins, room, and locations.
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="card h-100 feature-card">
-              <div class="card-body">
-                <h3 class="h5">Find items quickly</h3>
-                <p class="mb-0 text-secondary">
-                  Search by key word, dictation, and see where items are stored so you can find things faster.
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="card h-100 feature-card">
-              <div class="card-body">
-                <h3 class="h5">Build handoffs from inventory</h3>
-                <p class="mb-0 text-secondary">
-                  Turn selected items into simple jobs or location based lists for yourself or someone else.
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="card h-100 feature-card">
-              <div class="card-body">
-                <h3 class="h5">Export and share</h3>
-                <p class="mb-0 text-secondary">
-                  Share when needed at any point in the workflow.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5 border-top">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <h2 class="h3 mb-3">Who it's for</h2>
-            <p class="text-secondary mb-3">
-              Anyone managing physical inventory across spaces — especially when it needs to be found, moved, or handed off.
+    <section class="sortiq-section sortiq-section-alt" id="how-it-works" aria-labelledby="section-flow-heading">
+      <div class="container sortiq-container">
+        <div class="row align-items-end g-4 mb-4 mb-lg-5">
+          <div class="col-lg-7">
+            <h2 id="section-flow-heading" class="sortiq-section-title mb-3">From photo to usable inventory.</h2>
+            <p class="sortiq-section-lead mb-0">
+              A simple loop designed for crews, vendors, and operators who cannot pause the day for perfect data entry.
             </p>
-            <ul class="audience-list mb-0">
-              <li>Teams managing gear, props, or equipment</li>
-              <li>Sellers tracking inventory across locations</li>
-              <li>Storage unit operators and space owners</li>
-              <li>Event managers working in real-world spaces and dynamically changing environments</li>
-            </ul>
+          </div>
+          <div class="col-lg-5">
+            <!-- Slot: .sortiq-onboarding-choices-photo → assets/onboarding_choices.PNG -->
+            <div class="sortiq-slot-card sortiq-onboarding-choices-slot mb-0">
+              <div class="sortiq-slot-frame">
+                <img
+                  class="sortiq-onboarding-choices-photo"
+                  src="assets/onboarding_choices.PNG"
+                  width="900"
+                  height="600"
+                  alt="Onboarding choices in the SortIQ app"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="py-5 border-top">
-      <div class="container">
-        <h2 class="h3 mb-4">How it works</h2>
         <div class="row g-4">
-          <div class="col-md-4">
-            <div class="step-box p-4 h-100 rounded-4 border">
-              <p class="step-label mb-2">Step 1</p>
-              <h3 class="h5">Add items</h3>
-              <p class="mb-0 text-secondary">
-                Capture photos and use AI-assisted intake to build inventory quickly.
+          <div class="col-md-6 col-xl-3">
+            <article class="sortiq-icon-card h-100">
+              <p class="sortiq-step-kicker">01</p>
+              <h3 class="sortiq-card-title">Capture</h3>
+              <p class="sortiq-card-body mb-0">
+                Photograph spaces, bins, kits, trucks, shelves, props, tools, rentals, or stock.
               </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="sortiq-icon-card h-100">
+              <p class="sortiq-step-kicker">02</p>
+              <h3 class="sortiq-card-title">Identify</h3>
+              <p class="sortiq-card-body mb-0">
+                Use AI-assisted recognition to name items faster — now or later.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="sortiq-icon-card h-100">
+              <p class="sortiq-step-kicker">03</p>
+              <h3 class="sortiq-card-title">Organize</h3>
+              <p class="sortiq-card-body mb-0">
+                Group items by space, project, job, kit, vendor, client, category, or condition.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="sortiq-icon-card h-100">
+              <p class="sortiq-step-kicker">04</p>
+              <h3 class="sortiq-card-title">Use</h3>
+              <p class="sortiq-card-body mb-0">
+                Search, plan, pull, track, update, and hand off inventory as the work changes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sortiq-section" aria-labelledby="section-questions-heading">
+      <div class="container sortiq-container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <!-- Slot: .move-handoff-photo → assets/search screen.jpeg -->
+            <div class="sortiq-slot-card mb-0">
+              <div class="sortiq-slot-frame">
+                <img
+                  class="move-handoff-photo"
+                  src="assets/search screen.jpeg"
+                  width="900"
+                  height="1200"
+                  alt="Search screen showing how teams find items for handoffs"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="step-box p-4 h-100 rounded-4 border">
-              <p class="step-label mb-2">Step 2</p>
-              <h3 class="h5">Search and manage</h3>
-              <p class="mb-0 text-secondary">
-                Sort by space, bin, or keyword to keep inventory clean and easy to navigate.
+          <div class="col-lg-6 order-lg-1">
+            <h2 id="section-questions-heading" class="sortiq-section-title">Built for the questions that come later.</h2>
+            <p class="sortiq-section-lead">
+              Where is it? Who has it? How many do we have? What condition is it in? Did it sell? Was it returned damaged?
+            </p>
+            <p class="sortiq-section-lead mb-0">
+              Give teams a visual inventory record they can return to when the work changes, the crew changes, or the
+              thing everyone thought was finished suddenly matters again.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sortiq-section sortiq-section-alt" id="use-cases" aria-labelledby="section-workflows-heading">
+      <div class="container sortiq-container">
+        <div class="row justify-content-center text-center mb-4 mb-lg-5">
+          <div class="col-xl-9">
+            <h2 id="section-workflows-heading" class="sortiq-section-title">Built for physical workflows that move fast.</h2>
+            <p class="sortiq-section-lead mx-auto mb-0">
+              From production trucks to client rotations, SortIQ is designed for inventory that never sits still.
+            </p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4">
+            <article class="sortiq-use-card h-100">
+              <h3 class="sortiq-card-title">Film, Props &amp; Set Dressing</h3>
+              <p class="sortiq-card-body mb-0">
+                Track pulls, staging, hero props, breakaways, rental returns, continuity, reshoots, and the things
+                everyone swears we’ll never need again. We know better.
               </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="sortiq-use-card h-100">
+              <h3 class="sortiq-card-title">Vendors with Rotating Inventory</h3>
+              <p class="sortiq-card-body mb-0">
+                See what is available, out, sold, reserved, returned, damaged, or ready for the next client.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="sortiq-use-card h-100">
+              <h3 class="sortiq-card-title">Tools &amp; Job Sites</h3>
+              <p class="sortiq-card-body mb-0">
+                Capture kits, trucks, supplies, tool rooms, and job-site setups before they change hands.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="sortiq-use-card h-100">
+              <h3 class="sortiq-card-title">Catering &amp; Events</h3>
+              <p class="sortiq-card-body mb-0">
+                Track serving pieces, coolers, bins, linens, disposables, rentals, and what came back after the event.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="sortiq-use-card h-100">
+              <h3 class="sortiq-card-title">Home Organizing &amp; Storage</h3>
+              <p class="sortiq-card-body mb-0">
+                Create visual records for closets, garages, storage units, estate projects, moves, and client handoffs.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="sortiq-use-card h-100">
+              <h3 class="sortiq-card-title">Resale &amp; Small Business Inventory</h3>
+              <p class="sortiq-card-body mb-0">
+                Photograph first, fill in details later, and keep searchable records of what sold, what remains, and what
+                can be reused or listed.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sortiq-section" aria-labelledby="section-context-heading">
+      <div class="container sortiq-container">
+        <div class="row g-4 g-lg-5 align-items-stretch">
+          <div class="col-lg-6 d-flex">
+            <div class="sortiq-context-panel w-100">
+              <h2 id="section-context-heading" class="sortiq-section-title">Not just inventory. Visual context.</h2>
+              <p class="sortiq-section-lead">
+                A spreadsheet can tell you an item exists. A photo can show what it looks like, what condition it is in,
+                what it was stored with, and whether it is worth sending someone to find it.
+              </p>
+              <p class="sortiq-section-lead mb-4">
+                We build around the way physical teams actually work: capture the scene, identify what matters, organize
+                it into a useful record, and update it as things move, sell, return, break, or get pulled again.
+              </p>
+              <p class="sortiq-callout mb-0">Know where everything lives even when everything moves.</p>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="step-box p-4 h-100 rounded-4 border">
-              <p class="step-label mb-2">Step 3</p>
-              <h3 class="h5">Create a handoff</h3>
-              <p class="mb-0 text-secondary">
-                Select items and share a focused job list without exposing your full inventory.
-              </p>
+          <div class="col-lg-6 d-flex">
+            <!-- Slot: .capture-space-photo → assets/propbins.jpg -->
+            <div class="sortiq-slot-card sortiq-capture-space-slot mb-0 w-100 d-flex flex-column">
+              <div class="sortiq-slot-frame sortiq-slot-frame-tall flex-grow-1">
+                <img
+                  class="capture-space-photo"
+                  src="assets/propbins.jpg"
+                  width="1200"
+                  height="900"
+                  alt="Props organized in bins inside a truck or staging space"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-5 border-top">
-      <div class="container">
+    <section class="sortiq-section sortiq-section-founder" aria-labelledby="section-founder-heading">
+      <div class="container sortiq-container">
         <div class="row justify-content-center">
-          <div class="col-lg-9">
-            <h2 class="h3 mb-3">Why Mybox Ai is different</h2>
-            <p class="mb-0 text-secondary">
-              Mybox Ai is not only about tracking inventory. It helps you act on inventory by turning items into clear, focused handoffs so work gets done faster and with less confusion.
+          <div class="col-xl-9">
+            <h2 id="section-founder-heading" class="sortiq-section-title">Built by a props veteran who knows the truck is only half the system.</h2>
+            <div class="sortiq-founder-copy">
+              <p>
+                SortIQ was started by a veteran film props professional turned MBA candidate, after years of working with
+                the kind of physical inventory that does not fit neatly into a spreadsheet.
+              </p>
+              <p>
+                On a production, a truck can be meticulously labeled and still take weeks for a new hire to truly learn.
+                Because the hard part is not always knowing what bin something is in. It is knowing the maybes: every object
+                that could work, every backup option, every strange little thing that might save the scene.
+              </p>
+              <p>
+                When special effects needs something small, round, soft, and palm-sized, the person who knows the truck may
+                be stuck on set while the truck is a mile away and everyone is waiting.
+              </p>
+              <p>
+                SortIQ grew out of that exact pressure: capture the visual knowledge, reduce the repeated explaining, and help
+                the next person find what they need faster.
+              </p>
+              <p class="mb-0">
+                Props always saves the day. SortIQ is built to help save it faster.
+              </p>
+            </div>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a
+                class="btn sortiq-btn-ghost"
+                href="https://www.imdb.com/name/nm1980251/?ref_=fn_t_1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >IMDb</a>
+              <a
+                class="btn sortiq-btn-ghost"
+                href="https://www.linkedin.com/in/nicholewleklinski/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sortiq-section sortiq-section-alt" aria-labelledby="section-future-heading">
+      <div class="container sortiq-container">
+        <div class="row justify-content-center">
+          <div class="col-xl-9 text-center">
+            <h2 id="section-future-heading" class="sortiq-section-title">Built for the next layer of physical operations.</h2>
+            <p class="sortiq-section-lead mx-auto mb-0">
+              We are starting with AI vision–assisted photo-based inventory capture and search. The larger goal is an
+              AI-assisted operations layer that helps teams organize visual records, plan pulls, compare available
+              inventory, prepare handoffs, flag condition changes, and reduce repeated data entry across projects. This is
+              direction we are building toward with early partners — not a guarantee that every capability is available in
+              the product today.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="request-access" class="py-5 border-top">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-8">
-            <h2 class="h3 mb-3">Ready to try Mybox Ai?</h2>
-            <p class="text-secondary mb-4">
-              Join the beta to get early access and help shape the product.
+    <section class="sortiq-section sortiq-final-cta" id="request-access" aria-labelledby="final-cta-heading">
+      <div class="container sortiq-container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6">
+            <h2 id="final-cta-heading" class="sortiq-section-title">Have a workflow that keeps changing?</h2>
+            <p class="sortiq-section-lead">
+              We’re inviting early users from production, props, vendors, organizing, catering, tools, storage, and other
+              physical inventory workflows.
             </p>
-            <a href="mailto:savagepropsllc@gmail.com?subject=Mybox%20Ai%20Early%20Access" class="btn btn-primary btn-lg px-4">
+            <a class="btn sortiq-btn-primary btn-lg px-4 mb-3" href="mailto:savagepropsllc@gmail.com?subject=SortIQ%20Early%20Access">
               Request Early Access
             </a>
+            <p class="sortiq-section-lead small mb-4 mb-lg-0">
+              We’re especially interested in teams currently managing inventory through spreadsheets, camera rolls, texts,
+              and memory.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <!-- Final CTA product frame → assets/welcomeback.PNG -->
+            <div class="sortiq-final-shot mb-0">
+              <div class="sortiq-final-shot-frame">
+                <img
+                  class="sortiq-final-product-shot"
+                  src="assets/welcomeback.PNG"
+                  width="900"
+                  height="1950"
+                  alt="SortIQ welcome screen shown in a rounded product frame"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="py-5 border-top">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <h2 class="h4 mb-3">Contact</h2>
-            <p class="mb-2 text-secondary">
-              Questions or early access requests:
-              <a href="mailto:savagepropsllc@gmail.com">savagepropsllc@gmail.com</a>
+    <section class="sortiq-section sortiq-section-contact border-top" aria-labelledby="contact-heading">
+      <div class="container sortiq-container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <h2 id="contact-heading" class="h5 sortiq-contact-title">Contact</h2>
+            <p class="sortiq-section-lead mb-2">
+              Questions or early access:
+              <a class="sortiq-inline-link" href="mailto:savagepropsllc@gmail.com">savagepropsllc@gmail.com</a>
             </p>
-            <p class="mb-0 text-secondary small">
-              <a href="/privacy">Privacy policy</a> (for app store listings and in-app reference)
+            <p class="sortiq-section-lead small mb-0">
+              <a class="sortiq-inline-link" href="/privacy">Privacy policy</a>
+              <span class="text-secondary"> · </span>
+              for app store listings and in-app reference
             </p>
           </div>
         </div>
@@ -220,22 +511,37 @@
     </section>
   </main>
 
-  <footer class="site-footer border-top py-4">
-    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
-      <div>
-        <p class="mb-1 small text-secondary">© 2026 Mybox Ai</p>
-        <p class="mb-0 small text-secondary">Mybox Ai is a product of Savage Props LLC</p>
-        <p class="footer-ux-credit mb-0 mt-2">
-          Product UX feedback:
-          <a href="https://www.sylwiaklecha.com/" target="_blank" rel="noopener noreferrer">Sylwia Klecha</a>
-        </p>
-      </div>
-      <div class="d-flex flex-column text-sm-end">
-        <a class="small text-secondary text-decoration-none mb-1" href="mailto:savagepropsllc@gmail.com">savagepropsllc@gmail.com</a>
-        <a class="small text-secondary text-decoration-none mb-1" href="/privacy">Privacy policy</a>
-        <a class="small text-secondary text-decoration-none" href="/investor">Investor and product context</a>
+  <footer class="sortiq-footer border-top">
+    <div class="container sortiq-container py-4">
+      <div class="row g-3 align-items-start justify-content-between">
+        <div class="col-md-6">
+          <p class="sortiq-footer-brand mb-1">SortIQ</p>
+          <p class="sortiq-footer-meta mb-2">Product of Savage Props LLC</p>
+          <p class="footer-ux-credit mb-0">
+            Product UX feedback:
+            <a href="https://www.sylwiaklecha.com/" target="_blank" rel="noopener noreferrer">Sylwia Klecha</a>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <ul class="sortiq-footer-links list-unstyled mb-0 d-flex flex-column flex-md-row flex-md-wrap gap-md-3 justify-content-md-end">
+            <li><a href="/investor">Investor Info</a></li>
+            <li><a href="#request-access">Early Access</a></li>
+            <li>
+              <a href="https://www.linkedin.com/in/nicholewleklinski/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+            <li>
+              <a href="https://www.imdb.com/name/nm1980251/?ref_=fn_t_1" target="_blank" rel="noopener noreferrer">IMDb</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
 </body>
 </html>
