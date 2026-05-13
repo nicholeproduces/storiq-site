@@ -512,18 +512,54 @@ li {
   }
 }
 
-/* How it works: headline + welcome in two columns on desktop */
-.sortiq-welcomeback-showcase--inline {
-  max-width: 22rem;
+/* How it works: identified screen (296×640) beside headline — preserve aspect ratio */
+.sortiq-how-intro-row .sortiq-how-identified-showcase.sortiq-welcomeback-showcase--inline {
+  max-width: min(100%, 16rem);
+}
+
+.sortiq-how-intro-row .sortiq-how-identified-screen-img {
+  display: block;
+  width: 100%;
+  max-width: min(100%, 15rem);
+  height: auto;
+  aspect-ratio: 296 / 640;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(26, 29, 33, 0.08);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
 
 @media (min-width: 992px) {
-  .sortiq-how-intro-row .sortiq-welcomeback-showcase--inline {
-    max-width: min(100%, 20rem);
+  .sortiq-how-intro-row .sortiq-how-identified-showcase.sortiq-welcomeback-showcase--inline {
+    max-width: min(100%, 15.25rem);
   }
 
-  .sortiq-how-intro-row .sortiq-welcomeback-showcase-img {
-    max-width: 100%;
+  .sortiq-how-intro-row .sortiq-how-identified-screen-img {
+    max-width: min(100%, 15.25rem);
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sortiq-how-intro-row .sortiq-how-identified-showcase.sortiq-welcomeback-showcase--inline {
+    max-width: min(100%, 16.25rem);
+  }
+
+  .sortiq-how-intro-row .sortiq-how-identified-screen-img {
+    max-width: min(100%, 16.25rem);
+  }
+}
+
+@media (min-width: 1400px) {
+  .sortiq-how-intro-row .sortiq-how-identified-showcase.sortiq-welcomeback-showcase--inline {
+    max-width: min(100%, 17rem);
+  }
+
+  .sortiq-how-intro-row .sortiq-how-identified-screen-img {
+    max-width: min(100%, 17rem);
   }
 }
 
