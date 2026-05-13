@@ -889,6 +889,13 @@ li {
   color: var(--siq-muted);
 }
 
+.sortiq-footer-company {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--siq-muted);
+}
+
 .sortiq-footer-links a {
   color: var(--siq-muted);
   text-decoration: none;
