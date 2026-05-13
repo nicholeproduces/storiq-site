@@ -784,6 +784,29 @@ li {
   }
 }
 
+/* “Visual context” column — welcome portrait in slot */
+.sortiq-context-visual-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+}
+
+.sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
+  width: auto;
+  max-width: min(100%, 17rem);
+  height: auto;
+  max-height: min(62vh, 540px);
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
+    max-width: min(100%, 19rem);
+  }
+}
+
 .sortiq-onboarding-choices-slot img {
   object-fit: cover;
   max-height: 260px;
