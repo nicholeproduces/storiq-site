@@ -463,7 +463,7 @@ li {
 
 .sortiq-hero-onboarding-triple {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   border-radius: var(--siq-radius-xl);
   border: 1px solid var(--siq-border);
   box-shadow: var(--siq-shadow);
@@ -475,22 +475,128 @@ li {
   box-shadow: var(--siq-shadow-hover);
 }
 
-.sortiq-hero-main-screenshot,
-.sortiq-hero-secondary-screenshot {
-  display: none;
+@media (min-width: 992px) {
+  .sortiq-hero-onboarding-triple {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+}
+
+/* Welcome screen — full visible near “From photo to usable inventory” */
+.sortiq-welcomeback-showcase {
+  background: var(--siq-surface);
+  border: 1px solid var(--siq-border);
+  border-radius: var(--siq-radius-xl);
+  box-shadow: var(--siq-shadow);
+  padding: clamp(1rem, 3vw, 1.75rem);
+  text-align: center;
+}
+
+.sortiq-welcomeback-showcase-img {
+  width: auto;
+  max-width: min(100%, 22rem);
+  height: auto;
+  max-height: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(26, 29, 33, 0.08);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
 
 @media (min-width: 992px) {
-  .sortiq-hero-visual-stack {
-    min-height: 280px;
-    padding: 0 0.5rem 2.25rem;
+  .sortiq-welcomeback-showcase-img {
+    max-width: min(100%, 26rem);
+  }
+}
+
+/* Bottom layered stack — user options foremost */
+.sortiq-bottom-stack-section {
+  background: linear-gradient(180deg, #f4f2ee 0%, #eef2f8 55%, #fbfaf8 100%);
+  border-top: 1px solid var(--siq-border);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.sortiq-bottom-visual-stack {
+  position: relative;
+  isolation: isolate;
+  min-height: 200px;
+  padding: 0 0.25rem 2.5rem;
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sortiq-bottom-visual-stack .sortiq-bottom-layer-spaceslist,
+.sortiq-bottom-visual-stack .sortiq-bottom-layer-welcomeback {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .sortiq-bottom-visual-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding-bottom: 1.5rem;
+    min-height: 0;
   }
 
-  .sortiq-hero-main-screenshot,
-  .sortiq-hero-secondary-screenshot {
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-spaceslist,
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-welcomeback {
+    display: block;
+    position: relative;
+    width: min(70%, 220px);
+    border-radius: 1.25rem;
+    border: 1px solid var(--siq-border);
+    box-shadow: var(--siq-shadow);
+  }
+
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-user-options {
+    order: -1;
+    width: min(100%, 26rem);
+    box-shadow: var(--siq-shadow-hover);
+  }
+
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-spaceslist {
+    transform: rotate(-4deg);
+  }
+
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-welcomeback {
+    transform: rotate(4deg);
+  }
+}
+
+.sortiq-bottom-visual-stack .sortiq-bottom-layer-user-options {
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+  margin-right: auto;
+  width: min(100%, 36rem);
+  border-radius: var(--siq-radius-xl);
+  border: 1px solid var(--siq-border);
+  box-shadow: var(--siq-shadow-hover);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sortiq-bottom-visual-stack .sortiq-bottom-layer-user-options:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.14);
+}
+
+@media (min-width: 992px) {
+  .sortiq-bottom-visual-stack {
+    min-height: 300px;
+    padding: 0 1.5rem 3rem;
+  }
+
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-spaceslist,
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-welcomeback {
     display: block;
     position: absolute;
-    width: min(34%, 210px);
+    width: min(32%, 200px);
     border-radius: 1.35rem;
     border: 1px solid var(--siq-border);
     box-shadow: var(--siq-shadow);
@@ -498,28 +604,27 @@ li {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .sortiq-hero-secondary-screenshot {
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-spaceslist {
     left: 0;
-    top: 12%;
+    top: 14%;
     transform: rotate(-8deg);
+    z-index: 1;
   }
 
-  .sortiq-hero-main-screenshot {
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-welcomeback {
     right: 0;
-    bottom: 2%;
+    bottom: 4%;
     transform: rotate(9deg);
-    z-index: 3;
+    z-index: 2;
   }
 
-  .sortiq-hero-secondary-screenshot:hover,
-  .sortiq-hero-main-screenshot:hover {
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-spaceslist:hover,
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-welcomeback:hover {
     box-shadow: var(--siq-shadow-hover);
   }
 
-  .sortiq-hero-onboarding-triple {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 94%;
+  .sortiq-bottom-visual-stack .sortiq-bottom-layer-user-options {
+    width: min(100%, 40rem);
   }
 }
 
