@@ -12,6 +12,10 @@
   --siq-shadow-hover: 0 22px 55px rgba(15, 23, 42, 0.12);
   --siq-radius-lg: 1.25rem;
   --siq-radius-xl: 1.75rem;
+  /* App / phone mockups — consistent soft screen corners */
+  --siq-radius-screen: 2.125rem;
+  /* White “device mat” between outer shell and screenshot */
+  --siq-screen-chrome: 0.45rem;
   --siq-font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
   --siq-font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -453,6 +457,17 @@ li {
   position: relative;
   isolation: isolate;
   margin-top: 0.5rem;
+  padding: var(--siq-screen-chrome);
+  background: var(--siq-surface);
+  border: 1px solid var(--siq-border);
+  border-radius: calc(var(--siq-radius-screen) + var(--siq-screen-chrome));
+  box-shadow: var(--siq-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.sortiq-hero-visual-stack:hover {
+  box-shadow: var(--siq-shadow-hover);
 }
 
 .sortiq-shot {
@@ -464,15 +479,14 @@ li {
 .sortiq-hero-onboarding-triple {
   position: relative;
   z-index: 1;
-  border-radius: var(--siq-radius-xl);
-  border: 1px solid var(--siq-border);
-  box-shadow: var(--siq-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: var(--siq-radius-screen);
+  border: none;
+  box-shadow: none;
+  transition: transform 0.2s ease;
 }
 
-.sortiq-hero-onboarding-triple:hover {
+.sortiq-hero-visual-stack:hover .sortiq-hero-onboarding-triple {
   transform: translateY(-2px);
-  box-shadow: var(--siq-shadow-hover);
 }
 
 @media (min-width: 992px) {
@@ -487,10 +501,11 @@ li {
 .sortiq-welcomeback-showcase {
   background: var(--siq-surface);
   border: 1px solid var(--siq-border);
-  border-radius: var(--siq-radius-xl);
+  border-radius: calc(var(--siq-radius-screen) + var(--siq-screen-chrome) + 0.5rem);
   box-shadow: var(--siq-shadow);
   padding: clamp(1rem, 3vw, 1.75rem);
   text-align: center;
+  overflow: hidden;
 }
 
 .sortiq-welcomeback-showcase-img {
@@ -501,9 +516,9 @@ li {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  border-radius: 1.35rem;
+  border-radius: var(--siq-radius-screen);
   border: 1px solid rgba(26, 29, 33, 0.08);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  box-shadow: none;
 }
 
 @media (min-width: 992px) {
@@ -526,7 +541,7 @@ li {
   object-fit: contain;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 1.35rem;
+  border-radius: var(--siq-radius-screen);
   border: 1px solid rgba(26, 29, 33, 0.08);
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
@@ -570,14 +585,15 @@ li {
 
 .sortiq-founder-intro-row .sortiq-founder-choices-screen-img {
   display: block;
-  width: 100%;
+  width: auto;
   max-width: min(100%, 15rem);
   height: auto;
+  max-height: min(82svh, 34rem);
   aspect-ratio: 1170 / 2532;
   object-fit: contain;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 1.35rem;
+  border-radius: var(--siq-radius-screen);
   border: 1px solid rgba(26, 29, 33, 0.08);
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
@@ -589,6 +605,7 @@ li {
 
   .sortiq-founder-intro-row .sortiq-founder-choices-screen-img {
     max-width: min(100%, 15.25rem);
+    max-height: min(82svh, 36rem);
     margin-left: auto;
     margin-right: 0;
   }
@@ -601,6 +618,7 @@ li {
 
   .sortiq-founder-intro-row .sortiq-founder-choices-screen-img {
     max-width: min(100%, 16.25rem);
+    max-height: min(82svh, 38rem);
   }
 }
 
@@ -611,7 +629,14 @@ li {
 
   .sortiq-founder-intro-row .sortiq-founder-choices-screen-img {
     max-width: min(100%, 17rem);
+    max-height: min(82svh, 40rem);
   }
+}
+
+/* Showcase shell carries depth; inner shots stay flat so white mat clips cleanly */
+.sortiq-welcomeback-showcase .sortiq-how-identified-screen-img,
+.sortiq-welcomeback-showcase .sortiq-founder-choices-screen-img {
+  box-shadow: none;
 }
 
 /* “Questions” section — portrait spaces list */
@@ -630,6 +655,9 @@ li {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: var(--siq-radius-screen);
+  border: 1px solid rgba(26, 29, 33, 0.08);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
 
 @media (min-width: 992px) {
@@ -706,6 +734,7 @@ li {
   height: auto;
   display: block;
   vertical-align: middle;
+  border-radius: var(--siq-radius-screen);
 }
 
 .sortiq-media-caption {
@@ -718,7 +747,8 @@ li {
 .sortiq-slot-card {
   background: var(--siq-surface);
   border: 1px solid var(--siq-border);
-  border-radius: var(--siq-radius-lg);
+  padding: var(--siq-screen-chrome);
+  border-radius: calc(var(--siq-radius-screen) + var(--siq-screen-chrome));
   box-shadow: var(--siq-shadow);
   overflow: hidden;
   transition: box-shadow 0.18s ease, transform 0.18s ease;
@@ -732,12 +762,14 @@ li {
 .sortiq-slot-frame {
   overflow: hidden;
   background: #eceae6;
+  border-radius: var(--siq-radius-screen);
 }
 
 .sortiq-slot-frame img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: var(--siq-radius-screen);
 }
 
 .sortiq-slot-frame-tall {
@@ -764,11 +796,14 @@ li {
 
 .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
   width: auto;
-  max-width: min(100%, 14rem);
+  max-width: min(100%, 15rem);
   height: auto;
-  max-height: min(50vh, 420px);
+  max-height: min(56svh, 455px);
   object-fit: contain;
   display: block;
+  border-radius: var(--siq-radius-screen);
+  border: 1px solid rgba(26, 29, 33, 0.08);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
 
 @media (min-width: 992px) {
@@ -777,15 +812,22 @@ li {
   }
 
   .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
-    max-width: min(100%, 15rem);
-    max-height: 420px;
+    max-width: min(100%, 15.25rem);
+    max-height: 450px;
   }
 }
 
 @media (min-width: 1200px) {
   .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
-    max-width: min(100%, 16rem);
-    max-height: 460px;
+    max-width: min(100%, 16.25rem);
+    max-height: 485px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .sortiq-context-visual-frame .sortiq-context-welcomeback-photo {
+    max-width: min(100%, 17rem);
+    max-height: 505px;
   }
 }
 
@@ -793,6 +835,7 @@ li {
   object-fit: cover;
   max-height: 260px;
   width: 100%;
+  border-radius: var(--siq-radius-screen);
 }
 
 @media (min-width: 992px) {
@@ -882,6 +925,91 @@ li {
 
 .sortiq-founder-copy p {
   max-width: 46rem;
+}
+
+/* Animated industry keywords (“river”) — fills space under scratch copy; edit chips in index.html */
+.sortiq-industry-river-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 100%;
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+  padding-bottom: clamp(0.25rem, 1.5vw, 0.75rem);
+}
+
+.sortiq-industry-river-lane {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.sortiq-industry-river-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 0;
+  animation: sortiq-industry-river-scroll 78s linear infinite;
+}
+
+.sortiq-industry-river-lane--reverse .sortiq-industry-river-track {
+  animation-direction: reverse;
+  animation-duration: 92s;
+}
+
+.sortiq-industry-river-group {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.55rem;
+  padding-inline: 0.35rem;
+}
+
+.sortiq-industry-chip {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--siq-muted);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--siq-border);
+  border-radius: 999px;
+  padding: 0.38rem 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+@keyframes sortiq-industry-river-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sortiq-industry-river-lane {
+    mask-image: none;
+  }
+
+  .sortiq-industry-river-lane--reverse {
+    display: none;
+  }
+
+  .sortiq-industry-river-track {
+    animation: none;
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.55rem;
+  }
+
+  .sortiq-industry-river-group + .sortiq-industry-river-group {
+    display: none;
+  }
 }
 
 .sortiq-final-cta {
