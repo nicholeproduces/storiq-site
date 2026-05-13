@@ -461,7 +461,7 @@
     <section class="sortiq-section sortiq-bottom-stack-section" aria-label="More product screens">
       <div class="container sortiq-container">
         <div class="sortiq-bottom-visual-stack">
-          <!-- Slots: spaceslist → assets/spaceslist.PNG; welcomeback → assets/welcomeback.PNG -->
+          <!-- Layered like hero (no onboarding): backs first in DOM, welcome screen last = foremost -->
           <img
             class="sortiq-shot sortiq-bottom-layer-spaceslist"
             src="/assets/spaceslist.PNG"
@@ -472,21 +472,20 @@
             decoding="async"
           />
           <img
-            class="sortiq-shot sortiq-bottom-layer-welcomeback"
-            src="/assets/welcomeback.PNG"
-            width="900"
-            height="1950"
-            alt="Welcome screen in the app"
-            loading="lazy"
-            decoding="async"
-          />
-          <!-- Foremost: .sortiq-onboarding-choices-photo → assets/onboarding_choices.PNG -->
-          <img
             class="sortiq-shot sortiq-onboarding-choices-photo sortiq-bottom-layer-user-options"
             src="/assets/onboarding_choices.PNG"
             width="900"
             height="600"
             alt="User options when getting started in the app"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="sortiq-shot sortiq-bottom-layer-welcomeback sortiq-bottom-welcomeback-feature"
+            src="/assets/welcomeback.PNG"
+            width="900"
+            height="1950"
+            alt="Welcome screen in the app"
             loading="lazy"
             decoding="async"
           />
