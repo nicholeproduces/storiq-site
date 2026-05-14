@@ -927,7 +927,18 @@ li {
   max-width: 46rem;
 }
 
-/* Animated industry keywords ("river") — under scratch copy; edit chips in index.html */
+/* Animated industry keywords ("river") — full-width strip above footer; chips in index.html */
+.sortiq-industry-river-pagefoot {
+  width: 100%;
+  background: var(--siq-surface);
+  padding-block: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.sortiq-industry-river-pagefoot .sortiq-industry-river-wrap {
+  margin-top: 0;
+  padding-bottom: 0.15rem;
+}
+
 .sortiq-industry-river-wrap {
   display: flex;
   flex-direction: column;
@@ -947,20 +958,32 @@ li {
 .sortiq-industry-river-track {
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
   width: max-content;
+  max-width: none;
   gap: 0;
-  animation: sortiq-industry-river-scroll 78s linear infinite;
+  flex-shrink: 0;
+  will-change: transform;
+  /* Longhand + !important: Bootstrap Reboot uses `* { animation-duration: 0.01ms !important; … }` when prefers-reduced-motion is set; class specificity beats `*` so motion stays visible (slower in the reduce block below). */
+  animation-name: sortiq-industry-river-scroll !important;
+  animation-duration: 78s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+  animation-direction: normal !important;
+  animation-fill-mode: none !important;
+  animation-play-state: running !important;
 }
 
 .sortiq-industry-river-lane--reverse .sortiq-industry-river-track {
-  animation-direction: reverse;
-  animation-duration: 92s;
+  animation-direction: reverse !important;
+  animation-duration: 92s !important;
 }
 
 .sortiq-industry-river-group {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+  flex-shrink: 0;
   gap: 0.55rem;
   padding-inline: 0.35rem;
 }
@@ -981,10 +1004,10 @@ li {
 
 @keyframes sortiq-industry-river-scroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -993,22 +1016,17 @@ li {
     mask-image: none;
   }
 
-  .sortiq-industry-river-lane--reverse {
-    display: none;
-  }
-
   .sortiq-industry-river-track {
-    animation: none;
-    width: 100%;
-    max-width: 56rem;
-    margin-inline: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 0.55rem;
+    animation-name: sortiq-industry-river-scroll !important;
+    animation-duration: 160s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-direction: normal !important;
   }
 
-  .sortiq-industry-river-group + .sortiq-industry-river-group {
-    display: none;
+  .sortiq-industry-river-lane--reverse .sortiq-industry-river-track {
+    animation-direction: reverse !important;
+    animation-duration: 190s !important;
   }
 }
 
