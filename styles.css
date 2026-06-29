@@ -1159,3 +1159,328 @@ li {
   overflow: hidden;
   background: #eceae6;
 }
+
+.investor-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+}
+
+.investor-jump-nav a {
+  border: 1px solid var(--siq-border);
+  border-radius: 0.45rem;
+  padding: 0.3rem 0.65rem;
+  background: var(--siq-surface);
+  color: var(--siq-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.investor-jump-nav a:hover,
+.investor-jump-nav a:focus {
+  color: var(--siq-primary);
+  border-color: #cbd3e2;
+  background: var(--siq-accent-soft);
+}
+
+.investor-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.investor-status-group {
+  border: 1px solid var(--siq-border);
+  border-radius: 0.8rem;
+  background: var(--siq-surface);
+  padding: 1rem;
+}
+
+.investor-status-group h3 {
+  margin-bottom: 0.7rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--siq-muted);
+}
+
+.investor-status-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.investor-status-group li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--siq-text);
+  font-size: 0.91rem;
+}
+
+.investor-status-group li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1f4e8f;
+  font-size: 0.8rem;
+}
+
+.investor-surface-alt {
+  background: #f3f1ed;
+}
+
+.investor-funding-card {
+  border: 1px solid var(--siq-border);
+  border-radius: 0.8rem;
+  background: var(--siq-surface);
+  padding: 1.1rem;
+}
+
+.investor-funding-num {
+  font-family: var(--siq-font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--siq-primary);
+  margin-bottom: 0.35rem;
+}
+
+.investor-funding-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.investor-funding-card ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.investor-funding-card li {
+  color: var(--siq-muted);
+  font-size: 0.88rem;
+}
+
+.investor-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border: 1px solid var(--siq-border);
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.investor-roadmap-step {
+  padding: 0.95rem 0.8rem;
+  background: var(--siq-surface);
+  border-right: 1px solid var(--siq-border);
+}
+
+.investor-roadmap-step:last-child {
+  border-right: none;
+}
+
+.investor-roadmap-step.is-current {
+  background: var(--siq-accent-soft);
+}
+
+.investor-roadmap-label {
+  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--siq-muted);
+  font-weight: 700;
+}
+
+.investor-roadmap-step.is-current .investor-roadmap-label {
+  color: var(--siq-primary);
+}
+
+.investor-roadmap-step h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.investor-segment-future {
+  border-style: dashed;
+}
+
+.investor-capital-rows {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.investor-capital-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 42px;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.investor-capital-row span {
+  color: var(--siq-text);
+  font-size: 0.9rem;
+}
+
+.investor-capital-row div {
+  height: 8px;
+  border-radius: 999px;
+  background: #e9edf5;
+  overflow: hidden;
+}
+
+.investor-capital-row i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #2f5d95 0%, #1e3a5f 100%);
+}
+
+.investor-capital-row strong {
+  color: var(--siq-muted);
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+.investor-milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--siq-border);
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.investor-milestone-col {
+  padding: 1.05rem;
+  border-right: 1px solid var(--siq-border);
+  background: var(--siq-surface);
+}
+
+.investor-milestone-col:last-child {
+  border-right: none;
+}
+
+.investor-milestone-col.is-current {
+  background: var(--siq-accent-soft);
+}
+
+.investor-milestone-head {
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--siq-muted);
+}
+
+.investor-milestone-col ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.investor-milestone-col li {
+  color: var(--siq-muted);
+  font-size: 0.86rem;
+}
+
+.investor-metric-card {
+  border: 1px solid var(--siq-border);
+  border-radius: 0.8rem;
+  background: var(--siq-surface);
+  padding: 1rem;
+}
+
+.investor-metric-card span {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 0.35rem;
+  padding: 0.15rem 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.investor-metric-card .is-done {
+  color: #1f4e8f;
+  background: var(--siq-accent-soft);
+}
+
+.investor-metric-card .is-active {
+  color: #1e3a5f;
+  background: #e9edf5;
+}
+
+.investor-metric-card .is-next {
+  color: var(--siq-muted);
+  background: #f1f2f5;
+}
+
+.investor-metric-card h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.investor-philosophy-block {
+  background: linear-gradient(180deg, #2f5d95 0%, #1e3a5f 100%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.investor-philosophy-block blockquote {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.investor-philosophy-block p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.investor-data-room {
+  border: 1px solid var(--siq-border);
+  border-radius: 0.9rem;
+  background: var(--siq-surface);
+  padding: 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 991px) {
+  .investor-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .investor-roadmap-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .investor-milestones-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .investor-capital-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .investor-capital-row strong {
+    text-align: left;
+  }
+
+  .investor-data-room {
+    grid-template-columns: 1fr;
+  }
+}
