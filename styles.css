@@ -1108,6 +1108,36 @@ li {
   text-decoration: underline;
 }
 
+.sortiq-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.85rem;
+}
+
+.sortiq-social-links a {
+  color: var(--siq-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sortiq-social-links a:hover,
+.sortiq-social-links a:focus {
+  color: var(--siq-text);
+  text-decoration: underline;
+}
+
+.sortiq-social-links--footer {
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+  .sortiq-social-links--footer {
+    justify-content: flex-end;
+  }
+}
+
 /* Investor page shared shell */
 
 .investor-shell {
