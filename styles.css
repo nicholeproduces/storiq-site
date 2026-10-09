@@ -265,6 +265,20 @@ li {
   margin-right: 0;
 }
 
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.site-brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  display: block;
+  flex: none;
+}
+
 .site-brand:focus-visible {
   outline: 2px solid var(--site-accent);
   outline-offset: 4px;
