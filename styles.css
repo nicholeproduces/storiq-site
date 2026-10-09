@@ -1514,3 +1514,111 @@ li {
     grid-template-columns: 1fr;
   }
 }
+
+/* Investor body copy: 17px on small screens, 18px from desktop up. */
+.investor-shell main p:not(.small):not(.investor-eyebrow):not(.lead),
+.investor-shell main li,
+.investor-shell main blockquote {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+@media (min-width: 992px) {
+  .investor-shell main p:not(.small):not(.investor-eyebrow):not(.lead),
+  .investor-shell main li,
+  .investor-shell main blockquote {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+.investor-callout-title {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.investor-product-shots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  justify-content: center;
+}
+
+.investor-product-shots figure {
+  margin: 0;
+  width: min(100%, 280px);
+  text-align: center;
+}
+
+.investor-product-shots img {
+  width: min(100%, 280px);
+  height: auto;
+  border-radius: 1.5rem;
+  border: 1px solid var(--siq-border);
+  box-shadow: var(--siq-shadow);
+}
+
+.investor-product-shots figcaption {
+  margin-top: 0.65rem;
+  color: var(--siq-muted);
+}
+
+.app-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.app-feature-card {
+  background: var(--siq-surface);
+  border: 1px solid var(--siq-border);
+  border-radius: var(--siq-radius-lg);
+  box-shadow: var(--siq-shadow);
+  padding: 1.25rem 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.app-feature-card img {
+  width: min(100%, 280px);
+  height: auto;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.app-feature-card h3 {
+  font-family: var(--siq-font-heading);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-feature-card p {
+  color: var(--siq-muted);
+  margin-bottom: 0;
+}
+
+.app-hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--siq-radius-lg);
+  border: 1px solid var(--siq-border);
+  box-shadow: var(--siq-shadow);
+}
+
+.store-prose h2 {
+  font-family: var(--siq-font-heading);
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.store-prose p,
+.store-prose li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+  .app-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

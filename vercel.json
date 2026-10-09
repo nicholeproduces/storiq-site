@@ -13,6 +13,26 @@
     {
       "source": "/privacy",
       "destination": "/privacy.html"
+    },
+    {
+      "source": "/app",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/privacy-choices",
+      "destination": "/privacy-choices.html"
+    },
+    {
+      "source": "/support",
+      "destination": "/support.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/delete-account",
+      "destination": "/delete-account.html"
     }
   ]
 }
