@@ -6,7 +6,7 @@
   <title>Mybox AI · Visual inventory for physical teams</title>
   <meta
     name="description"
-    content="We’re building photo-first, AI-assisted visual inventory for teams managing physical items across spaces, jobs, rentals, and handoffs. Watch the MVP demo."
+    content="Photo-first, AI-assisted visual inventory for teams managing physical items across spaces, jobs, rentals, and handoffs."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -62,7 +62,7 @@
               <a class="nav-link site-nav-link" href="/privacy">Privacy</a>
             </li>
             <li class="nav-item ps-lg-2">
-              <a class="btn site-btn-primary site-btn-nav" href="https://vimeo.com/1203030969" target="_blank" rel="noopener noreferrer">MVP Demo</a>
+              <a class="btn site-btn-primary site-btn-nav" href="https://vimeo.com/1203030969" target="_blank" rel="noopener noreferrer">Watch the demo</a>
             </li>
           </ul>
         </div>
@@ -85,9 +85,17 @@
               inventory without hours of manual data entry. Capture now, identify now or later, and use the record to
               search, plan, track, and hand off physical work.
             </p>
-            <div class="d-flex flex-wrap gap-3 mb-4">
-              <a class="btn site-btn-primary btn-lg px-4" href="https://tally.so/r/2EyPV9?source=website_hero" target="_blank" rel="noopener noreferrer">Request Access</a>
+            <div class="store-badges mb-3" aria-label="Download MYBOXai">
+              <a href="https://apps.apple.com/app/id6761437816" target="_blank" rel="noopener noreferrer">
+                <img class="store-badge store-badge-apple" src="/assets/website/badges/app-store.svg" alt="Download on the App Store" width="120" height="40" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.savageprops.boxai" target="_blank" rel="noopener noreferrer">
+                <img class="store-badge store-badge-google" src="/assets/website/badges/google-play.png" alt="Get it on Google Play" width="155" height="60" />
+              </a>
             </div>
+            <p class="store-teams-link mb-4">
+              <a class="site-inline-link" href="https://tally.so/r/2EyPV9?source=website_teams" target="_blank" rel="noopener noreferrer">MYBOXai Teams: coming soon, join the list</a>
+            </p>
             <ul class="site-pill-row list-unstyled d-flex flex-wrap gap-2 mb-0" aria-label="Product highlights">
               <li><span class="site-pill">Photo-first inventory</span></li>
               <li><span class="site-pill">AI-assisted identification</span></li>
@@ -133,65 +141,61 @@
 
     <section class="site-section site-section-alt" id="how-it-works" aria-labelledby="section-flow-heading">
       <div class="container site-container">
-        <div class="row align-items-center g-4 g-lg-5 mb-4 mb-lg-5 site-how-intro-row">
-          <div class="col-lg-6">
+        <div class="row justify-content-center text-center mb-4 mb-lg-5">
+          <div class="col-xl-8">
             <h2 id="section-flow-heading" class="site-section-title mb-3">From photo to usable inventory.</h2>
             <p class="site-section-lead mb-0">
-              A simple loop designed for crews, vendors, and operators who cannot pause the day for perfect data entry.
+              Snap a photo, review the names, and find the item again when you need it.
             </p>
           </div>
-          <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
-            <div class="site-welcomeback-showcase site-welcomeback-showcase--inline site-how-identified-showcase mb-0 w-100">
-              <img
-                class="site-how-identified-screen-img"
-                src="/assets/identified-screen.png"
-                width="296"
-                height="640"
-                alt="App screen identifying labeled items from a shelf photo"
-                loading="lazy"
-                decoding="async"
-              />
+        </div>
+        <ol class="site-steps">
+          <li class="site-step">
+            <img src="/assets/website/screens-2026-11/welcome_screen.jpeg" width="390" height="844" alt="Capture screen with Take photo, Type items, and From library" />
+            <p class="site-step-kicker">01</p>
+            <h3>Snap a photo</h3>
+            <p>Take a photo, choose one from your library, or type the items yourself.</p>
+          </li>
+          <li class="site-step">
+            <img src="/assets/website/screens-2026-11/idenitfy_items.jpeg" width="390" height="844" alt="Identified names listed right after a photo, ready to review before saving" />
+            <p class="site-step-kicker">02</p>
+            <h3>Review the names</h3>
+            <p>Check the names before you save them. Change or remove any that are not right.</p>
+          </li>
+          <li class="site-step">
+            <img src="/assets/website/screens-2026-11/items_in_bins.jpeg" width="390" height="844" alt="A bin opened to its item list" />
+            <p class="site-step-kicker">03</p>
+            <h3>Spaces and bins</h3>
+            <p>Put items in a bin inside a space. Open the bin to see what is in it.</p>
+          </li>
+          <li class="site-step">
+            <img src="/assets/website/screens-2026-11/search_field.jpeg" width="390" height="844" alt="Search results with a microphone for voice search" />
+            <p class="site-step-kicker">04</p>
+            <h3>Search, or just say it</h3>
+            <p>Type a name, or tap the microphone and say what you are looking for.</p>
+          </li>
+        </ol>
+        <h3 class="site-features-title" id="section-features-heading">Also in the app</h3>
+        <ul class="site-steps site-features">
+          <li class="site-step">
+            <img src="/assets/website/screens-2026-11/custom_labels.jpeg" width="390" height="844" alt="Settings for renaming Space, Bin, and Item" />
+            <h3>Your words</h3>
+            <p>Name Space, Bin, and Item in your own words. The inventory works the same underneath.</p>
+          </li>
+          <li class="site-step">
+            <img src="/assets/website/screens-2026-11/import_studio.jpeg" width="390" height="844" alt="Import Studio, ready to upload a CSV or Excel file" />
+            <h3>Existing inventory</h3>
+            <p>Bring in a spreadsheet you already have. Import Studio takes a CSV or Excel file.</p>
+          </li>
+          <li class="site-step site-step-wide">
+            <div class="site-step-shots">
+              <img src="/assets/website/screens-2026-11/sell_item.jpeg" width="390" height="844" alt="Sell this item, with the listing ready to copy into a marketplace" />
+              <img src="/assets/website/screens-2026-11/create_inventory_based_quotes.jpeg" width="390" height="844" alt="An open quote built from inventory" />
             </div>
-          </div>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-6 col-xl-3">
-            <article class="site-icon-card h-100">
-              <p class="site-step-kicker">01</p>
-              <h3 class="site-card-title">Capture</h3>
-              <p class="site-card-body mb-0">
-                Photograph spaces, bins, kits, trucks, shelves, props, tools, rentals, or stock.
-              </p>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="site-icon-card h-100">
-              <p class="site-step-kicker">02</p>
-              <h3 class="site-card-title">Identify</h3>
-              <p class="site-card-body mb-0">
-                Use AI-assisted recognition to name items faster — now or later.
-              </p>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="site-icon-card h-100">
-              <p class="site-step-kicker">03</p>
-              <h3 class="site-card-title">Organize</h3>
-              <p class="site-card-body mb-0">
-                Group items by space, project, job, kit, vendor, client, category, or condition.
-              </p>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="site-icon-card h-100">
-              <p class="site-step-kicker">04</p>
-              <h3 class="site-card-title">Use</h3>
-              <p class="site-card-body mb-0">
-                Search, plan, pull, track, update, and hand off inventory as the work changes.
-              </p>
-            </article>
-          </div>
-        </div>
+            <h3>Sell or quote</h3>
+            <p>Sell one item by copying the listing into your marketplace, or open a quote from the items you already have.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -318,8 +322,7 @@
       <div class="container site-container">
         <div class="row justify-content-center">
           <div class="col-xl-10">
-            <div class="row align-items-start g-4 g-lg-5 site-founder-intro-row">
-              <div class="col-lg-6">
+            <div>
                 <h2 id="section-founder-heading" class="site-section-title mb-3">Built by a props veteran who knows the truck is only half the system.</h2>
                 <div class="site-founder-copy">
                   <p>
@@ -357,20 +360,6 @@
                     rel="noopener noreferrer"
                   >LinkedIn</a>
                 </div>
-              </div>
-              <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
-                <div class="site-welcomeback-showcase site-welcomeback-showcase--inline site-founder-choices-showcase mb-0 w-100">
-                  <img
-                    class="site-founder-choices-screen-img"
-                    src="/assets/onboarding_choices.PNG"
-                    width="1170"
-                    height="2532"
-                    alt="Onboarding choices when getting started in the app"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -383,11 +372,9 @@
           <div class="col-xl-9 text-center">
             <h2 id="section-future-heading" class="site-section-title">Built for the next layer of physical operations.</h2>
             <p class="site-section-lead mx-auto mb-0">
-              We are starting with AI vision–assisted photo-based inventory capture and search. The larger goal is an
-              AI-assisted operations layer that helps teams organize visual records, plan pulls, compare available
-              inventory, prepare handoffs, flag condition changes, and reduce repeated data entry across projects. This is
-              direction we are building toward with early partners — not a guarantee that every capability is available in
-              the product today.
+              MYBOXai starts with photo-based inventory capture and search. The larger goal is an
+              operations layer that helps teams organize visual records, plan pulls, compare available
+              inventory, prepare handoffs, and flag condition changes.
             </p>
           </div>
         </div>
@@ -400,15 +387,21 @@
           <div class="col-lg-10 col-xl-8">
             <h2 id="final-cta-heading" class="site-section-title">Have a workflow that keeps changing?</h2>
             <p class="site-section-lead mx-auto mx-lg-0">
-              We’re inviting early users from production, props, vendors, organizing, catering, tools, storage, and other
-              physical inventory workflows.
+              MYBOXai is for production, props, vendors, organizing, catering, tools, storage, and other physical inventory work.
             </p>
-            <a class="btn site-btn-primary btn-lg px-4 mb-3" href="https://tally.so/r/2EyPV9?source=website_cta" target="_blank" rel="noopener noreferrer">
-              Request Access
-            </a>
+            <div class="store-badges mb-3 justify-content-center justify-content-lg-start">
+              <a href="https://apps.apple.com/app/id6761437816" target="_blank" rel="noopener noreferrer">
+                <img class="store-badge store-badge-apple" src="/assets/website/badges/app-store.svg" alt="Download on the App Store" width="120" height="40" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.savageprops.boxai" target="_blank" rel="noopener noreferrer">
+                <img class="store-badge store-badge-google" src="/assets/website/badges/google-play.png" alt="Get it on Google Play" width="155" height="60" />
+              </a>
+            </div>
+            <p class="store-teams-link mb-3">
+              <a class="site-inline-link" href="https://tally.so/r/2EyPV9?source=website_teams" target="_blank" rel="noopener noreferrer">MYBOXai Teams: coming soon, join the list</a>
+            </p>
             <p class="site-section-lead small mb-0 mx-auto mx-lg-0">
-              We’re especially interested in teams currently managing inventory through spreadsheets, camera rolls, texts,
-              and memory.
+              Built for teams that still run inventory from spreadsheets, camera rolls, texts, and memory.
             </p>
           </div>
         </div>
@@ -424,10 +417,6 @@
               Questions:
               <a class="site-inline-link" href="mailto:hi@trymyboxai.com">hi@trymyboxai.com</a>
             </p>
-            <p class="site-section-lead mb-2">
-              Early access:
-              <a class="site-inline-link" href="https://tally.so/r/2EyPV9?source=website_contact" target="_blank" rel="noopener noreferrer">Request Access form</a>
-            </p>
             <p class="site-contact-title h6 mt-4 mb-2">Follow</p>
             <ul class="site-social-links list-unstyled mb-4" aria-label="MyBox AI social profiles">
               <li><a href="https://instagram.com/myboxai" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -440,6 +429,7 @@
               <li><a href="https://pinterest.com/MyBoxApp" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
               <li><a href="https://www.facebook.com/profile.php?id=61591992450174" target="_blank" rel="noopener noreferrer">Facebook</a></li>
               <li><a href="https://vimeo.com/user261186864" target="_blank" rel="noopener noreferrer">Vimeo</a></li>
+              <li><a href="https://www.linkedin.com/in/nicholewleklinski/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
             <p class="site-section-lead small mb-0">
               <a class="site-inline-link" href="/privacy">Privacy policy</a>
@@ -518,21 +508,22 @@
           <p class="site-footer-brand mb-1">Mybox AI</p>
           <p class="site-footer-company mb-1">Savage Props LLC</p>
           <p class="site-footer-meta mb-2">Visual inventory product</p>
-          <p class="footer-ux-credit mb-0">
+          <p class="footer-ux-credit mb-3">
             Product UX feedback:
             <a href="https://www.sylwiaklecha.com/" target="_blank" rel="noopener noreferrer">Sylwia Klecha</a>
           </p>
+          <div class="store-badges">
+            <a href="https://apps.apple.com/app/id6761437816" target="_blank" rel="noopener noreferrer">
+              <img class="store-badge store-badge-apple" src="/assets/website/badges/app-store.svg" alt="Download on the App Store" width="120" height="40" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.savageprops.boxai" target="_blank" rel="noopener noreferrer">
+              <img class="store-badge store-badge-google" src="/assets/website/badges/google-play.png" alt="Get it on Google Play" width="155" height="60" />
+            </a>
+          </div>
         </div>
         <div class="col-md-6">
           <ul class="site-footer-links list-unstyled mb-3 d-flex flex-column flex-md-row flex-md-wrap gap-md-3 justify-content-md-end">
             <li><a href="/investor">Investor Info</a></li>
-            <li><a href="https://tally.so/r/2EyPV9?source=website_footer" target="_blank" rel="noopener noreferrer">Request Access</a></li>
-            <li>
-              <a href="https://www.linkedin.com/in/nicholewleklinski/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            </li>
-            <li>
-              <a href="https://www.imdb.com/name/nm1980251/?ref_=fn_t_1" target="_blank" rel="noopener noreferrer">IMDb</a>
-            </li>
             <li><a href="/app">App</a></li>
             <li><a href="/privacy">Privacy</a></li>
             <li><a href="/privacy-choices">Privacy choices</a></li>
@@ -540,12 +531,18 @@
             <li><a href="/support">Support</a></li>
             <li><a href="mailto:hi@trymyboxai.com">hi@trymyboxai.com</a></li>
           </ul>
-          <ul class="site-social-links site-social-links--footer list-unstyled mb-0" aria-label="MyBox AI social profiles">
+          <ul class="site-social-links site-social-links--footer list-unstyled mb-0" aria-label="MYBOXai social profiles">
             <li><a href="https://instagram.com/myboxai" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://threads.net/@myboxai" target="_blank" rel="noopener noreferrer">Threads</a></li>
             <li><a href="https://tiktok.com/@myboxai" target="_blank" rel="noopener noreferrer">TikTok</a></li>
             <li><a href="https://x.com/myboxai" target="_blank" rel="noopener noreferrer">X</a></li>
+            <li><a href="https://bsky.app/profile/myboxai.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a></li>
             <li><a href="https://youtube.com/@myboxapp" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-            <li><a href="https://threads.net/@myboxai" target="_blank" rel="noopener noreferrer">Threads</a></li>
+            <li><a href="https://reddit.com/user/MyBoxApp" target="_blank" rel="noopener noreferrer">Reddit</a></li>
+            <li><a href="https://pinterest.com/MyBoxApp" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61591992450174" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://vimeo.com/user261186864" target="_blank" rel="noopener noreferrer">Vimeo</a></li>
+            <li><a href="https://www.linkedin.com/in/nicholewleklinski/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
       </div>
