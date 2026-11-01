@@ -1152,6 +1152,75 @@ li {
   }
 }
 
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+}
+
+.store-badge {
+  display: block;
+  width: auto;
+}
+
+.store-badge-apple {
+  height: 40px;
+}
+
+.store-badge-google {
+  height: 60px;
+}
+
+.store-teams-link {
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+.site-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-step {
+  background: var(--site-surface);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-lg);
+  box-shadow: var(--site-shadow);
+  padding: 1.25rem 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.site-step img {
+  width: min(100%, 240px);
+  height: auto;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(26, 29, 33, 0.08);
+  margin: 0 auto 1rem;
+}
+
+.site-step h3 {
+  font-family: var(--site-font-heading);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.site-step p:last-child {
+  color: var(--site-muted);
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .site-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Investor page shared shell */
 
 .investor-shell {
