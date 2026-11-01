@@ -596,64 +596,8 @@ li {
   }
 }
 
-/* Founder: onboarding choices beside story — same sizing ladder as “How it works” shot */
-.site-founder-intro-row .site-founder-choices-showcase.site-welcomeback-showcase--inline {
-  max-width: min(100%, 16rem);
-}
-
-.site-founder-intro-row .site-founder-choices-screen-img {
-  display: block;
-  width: auto;
-  max-width: min(100%, 15rem);
-  height: auto;
-  max-height: min(82svh, 34rem);
-  aspect-ratio: 1170 / 2532;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: var(--site-radius-screen);
-  border: 1px solid rgba(26, 29, 33, 0.08);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
-}
-
-@media (min-width: 992px) {
-  .site-founder-intro-row .site-founder-choices-showcase.site-welcomeback-showcase--inline {
-    max-width: min(100%, 15.25rem);
-  }
-
-  .site-founder-intro-row .site-founder-choices-screen-img {
-    max-width: min(100%, 15.25rem);
-    max-height: min(82svh, 36rem);
-    margin-left: auto;
-    margin-right: 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  .site-founder-intro-row .site-founder-choices-showcase.site-welcomeback-showcase--inline {
-    max-width: min(100%, 16.25rem);
-  }
-
-  .site-founder-intro-row .site-founder-choices-screen-img {
-    max-width: min(100%, 16.25rem);
-    max-height: min(82svh, 38rem);
-  }
-}
-
-@media (min-width: 1400px) {
-  .site-founder-intro-row .site-founder-choices-showcase.site-welcomeback-showcase--inline {
-    max-width: min(100%, 17rem);
-  }
-
-  .site-founder-intro-row .site-founder-choices-screen-img {
-    max-width: min(100%, 17rem);
-    max-height: min(82svh, 40rem);
-  }
-}
-
 /* Showcase shell carries depth; inner shots stay flat so white mat clips cleanly */
-.site-welcomeback-showcase .site-how-identified-screen-img,
-.site-welcomeback-showcase .site-founder-choices-screen-img {
+.site-welcomeback-showcase .site-how-identified-screen-img {
   box-shadow: none;
 }
 
@@ -1213,6 +1157,30 @@ li {
 .site-step p:last-child {
   color: var(--site-muted);
   margin-bottom: 0;
+}
+
+.site-step-wide {
+  grid-column: 1 / -1;
+}
+
+.site-step-shots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.site-step-shots img {
+  margin: 0;
+}
+
+.site-steps-note {
+  max-width: 36rem;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  color: var(--site-muted);
 }
 
 @media (max-width: 991px) {
