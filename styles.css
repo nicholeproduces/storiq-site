@@ -1183,9 +1183,6 @@ li {
   margin: 2.75rem 0 1.25rem;
 }
 
-.site-features .site-step {
-  grid-column: 1 / -1;
-}
 
 @media (max-width: 991px) {
   .site-steps {
