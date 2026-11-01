@@ -1176,11 +1176,15 @@ li {
   margin: 0;
 }
 
-.site-steps-note {
-  max-width: 36rem;
-  margin: 1.5rem auto 0;
+.site-features-title {
+  font-family: var(--site-font-heading);
+  font-size: 1.75rem;
   text-align: center;
-  color: var(--site-muted);
+  margin: 2.75rem 0 1.25rem;
+}
+
+.site-features .site-step {
+  grid-column: 1 / -1;
 }
 
 @media (max-width: 991px) {
